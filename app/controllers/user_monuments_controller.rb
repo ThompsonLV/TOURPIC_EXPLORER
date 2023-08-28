@@ -1,2 +1,0 @@
-class UserMonumentsController < ApplicationController
-end
