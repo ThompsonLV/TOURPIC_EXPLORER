@@ -1,0 +1,2 @@
+class MonumentsController < ApplicationController
+end
