@@ -4,7 +4,6 @@ class MonumentsController < ApplicationController
 
   def index
     @monuments = Monument.all
-
     @markers = @monuments.geocoded.map do |monument|
       {
         lat: monument.latitude,

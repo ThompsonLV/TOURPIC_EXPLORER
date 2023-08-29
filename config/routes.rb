@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   get 'users/sign_in'
 
-  resources :monuments, only: %i[index show]
-
-  resources :questions, only: :show
+  resources :monuments, only: %i[index show] do
+    resources :questions, only: %i[index show]
+  end
 
   resources :users, only: %i[index]
   get "my_profil", to: "users#my_profil"
