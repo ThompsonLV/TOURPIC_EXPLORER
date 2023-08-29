@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :questions, only: :show
 
   resources :users, only: %i[index]
+  get "my_profil", to: "users#my_profil"
 
   resources :user_answers, only: %i[create]
 end
