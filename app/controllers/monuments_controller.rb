@@ -24,4 +24,8 @@ class MonumentsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
+
+  # def monument_params
+  #   params.require(:monument).permit(:title, :short_description, :long_description, :points, :address, :photo)
+  # end
 end

@@ -7,12 +7,10 @@ UserMonument.destroy_all
 canuts = Monument.create!(
   title: "Mur des Canuts",
   short_description: "Située dans le quartier de la Croix-Rousse, cette fresque en trompe l'œil",
-
   long_description: " Le Mur des canuts y représente un grand nombre de ses habitants.
   Il est dédié aux canuts, des ouvriers tisserands de soie.Après l'avoir contemplé,
     partez à la découverte de ce quartier historique qui surplombe Lyon.",
   points: 500,
-
   address: "36 Bd des Canuts, 69004 Lyon"
 )
 

@@ -7,7 +7,7 @@ export default class extends Controller {
     apiKey: String,
     markers: Array
   }
-  
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -20,6 +20,8 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
+    console.log(this.markersValue);
+    
     this.markersValue.forEach((marker) => {
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
