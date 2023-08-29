@@ -1,6 +1,6 @@
 class Monument < ApplicationRecord
-  has_many :questions
-  has_many :user_monuments
+  has_many :questions, dependent: :destroy
+  has_many :user_monuments, dependent: :destroy
   # validates :photos, presence: true
   validates :title, presence: true
   validates :address, presence: true

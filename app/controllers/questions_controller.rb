@@ -1,14 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_monument, only: :show
 
-  def show
-    @question = Question.find(monument_id: @monument.id)
+  def index
+    @questions
+    @monument = Monument.find(params[:monument_id])
+    if @monument
+      @questions = @monument.questions
+    end
+    @question = Question.new
   end
-
-  # private
-
-  # def set_monument
-  #   @monument = Monument.find(params[:monument_id])
-  # end
-
 end

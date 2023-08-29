@@ -13,8 +13,6 @@ class MonumentsController < ApplicationController
   end
 
   def show
-    @questions = Question.where(monument_id: @monument.id)
-    @question = @questions.first
   end
 
   private
