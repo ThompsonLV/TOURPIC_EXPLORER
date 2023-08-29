@@ -1,0 +1,38 @@
+.profil-card{
+  border-radius: 12px;
+  display: flex;
+  background-color: aqua;
+  padding: 2rem;
+  margin-top: 8px;
+}
+
+.name{
+align-items: center;}
+
+.avatar{
+  margin: 8px;
+  width: 150px;
+  height: 250px;
+  border-radius: 26%;
+  align-items: flex-end;
+  margin-left: 52px ;
+}
+
+.classement {
+  display: grid;
+  height: 80px;
+  grid-template-columns: 1fr 1fr 1fr ;
+  margin: 8px;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-back {
+  background-color: rgb(92, 91, 92);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
