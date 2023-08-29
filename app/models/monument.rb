@@ -1,7 +1,7 @@
 class Monument < ApplicationRecord
   has_many :questions
   has_many :user_monuments
-  validates :photos, presence: true
+  # validates :photos, presence: true
   validates :title, presence: true
   validates :address, presence: true
   geocoded_by :address

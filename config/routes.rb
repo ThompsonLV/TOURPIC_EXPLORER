@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :monuments, only: %i[index show]
 
-  resources :questions, only: :index
+  resources :questions, only: :show
 
   resources :users, only: %i[index]
 

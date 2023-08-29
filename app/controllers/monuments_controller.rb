@@ -4,8 +4,6 @@ class MonumentsController < ApplicationController
 
   def index
     @monuments = Monument.all
-
-
     @markers = @monuments.geocoded.map do |monument|
       {
         lat: monument.latitude,
@@ -15,6 +13,8 @@ class MonumentsController < ApplicationController
   end
 
   def show
+    @questions = Question.where(monument_id: @monument.id)
+    @question = @questions.first
   end
 
   private
