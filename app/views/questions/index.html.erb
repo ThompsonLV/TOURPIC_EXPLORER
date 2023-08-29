@@ -1,14 +1,1 @@
-<div data-controller="quizz">
-  <% @questions.each do |question| %>
-    <%= question.content %> ?</li>
-      <%= form_with model: UserAnswer.new do |f| %>
-        <div data-quizz-target="togglableElement" class="quizz-display">
-        <% question.answers.each do |answer| %>
-          <%= answer.content %>
-          <%= f.radio_button :answer_id, answer.id %>
-          <% end %>
-          <button data-action="click->quizz#fire">Next</button>
-        </div>
-      <% end %>
-  <% end %>
-</div>
+<%= render 'form_quizz', question: @question %>

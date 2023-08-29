@@ -1,0 +1,12 @@
+<div data-controller="quizz">
+  <h3><%= @questions[0].content%></h3>
+  <%= form_with model: UserAnswer.new do |f| %>
+    <% @questions[0].answers.each do |answer| %>
+      <div>
+        <%= answer.content %>
+        <%= f.radio_button :answer_id, answer.id, data "" %>
+      </div>
+    <% end %>
+    <button data-action="click->quizz#increment">Next</button>
+  <% end %>
+</div>

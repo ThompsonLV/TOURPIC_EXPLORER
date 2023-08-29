@@ -2,7 +2,6 @@ class QuestionsController < ApplicationController
   before_action :set_monument, only: :show
 
   def index
-    @questions
     @monument = Monument.find(params[:monument_id])
     if @monument
       @questions = @monument.questions
