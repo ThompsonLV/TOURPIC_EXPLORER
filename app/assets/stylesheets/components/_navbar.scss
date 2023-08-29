@@ -10,3 +10,18 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+
+.navbar_container {
+  border-radius: 8px;
+  background: var(--c-6, #FEFEFF);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
+  height: 62px;
+  padding: 12px;
+  justify-content: center;
+  gap: 23px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}

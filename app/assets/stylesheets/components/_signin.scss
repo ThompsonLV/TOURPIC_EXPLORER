@@ -1,0 +1,26 @@
+
+.page_sign {
+  background: linear-gradient(180deg, #9EC6F8 34.38%, #C1F1E0 92.19%);
+  height: 100vh;
+}
+
+.form-actions {
+  width: 300px;
+  height: 45px;
+  flex-shrink: 0;
+  // style
+  border-radius: 4px;
+  background: var(--couleur-1, #98BEFD);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+
+}
+
+.logo {
+  border-radius: 1000px;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.22);
+  width: 256px;
+  height: 242.087px;
+  flex-shrink: 0;
+}
+
