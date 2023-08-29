@@ -1,2 +1,6 @@
 
+ <%= cl_image_tag(monument.photos.first.key, height: 200, crop: :fill) %>
+
 <h2><%= monument.title %></h2>
+
+<%= monument.short_description %>

@@ -1,5 +1,6 @@
 
 
+
   canuts = Monument.create!(
     title: "Mur des Canuts",
     short_description: "Située dans le quartier de la Croix-Rousse, cette fresque en trompe l'œil",
@@ -61,4 +62,5 @@
   fav2 = UserMonument.create!(user: @charles,monument: canuts, favoris: true)
   fav3 = UserMonument.create!(user: @lazari, monument: antique, favoris: true)
   p "Vraiment finis"
+
 
