@@ -5,7 +5,6 @@ class MonumentsController < ApplicationController
   def index
     @monuments = Monument.all
 
-
     @markers = @monuments.geocoded.map do |monument|
       {
         lat: monument.latitude,
@@ -26,4 +25,8 @@ class MonumentsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
+
+  # def monument_params
+  #   params.require(:monument).permit(:title, :short_description, :long_description, :points, :address, :photo)
+  # end
 end
