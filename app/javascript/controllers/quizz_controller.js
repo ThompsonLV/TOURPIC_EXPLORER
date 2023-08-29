@@ -9,8 +9,8 @@ export default class extends Controller {
   }
 
   increment() {
-    console.log("boutton");
-    // il faut créer le user_answer
+    console.log("button");
+    console.log();
     // il faut changer l'index
     // il faut rendre la nouvelle partial avec l'index augmenté
     // quand l'index > 5, alors affiché un bouton submit
