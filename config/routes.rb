@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   get 'users/sign_in'
 
-  resources :monuments, only: %i[index show] do
-    resources :questions, only: :show
-    resources :answer, only: :create
-  end
+  resources :monuments, only: %i[index show]
 
+  resources :questions, only: :show
 
+  resources :users, only: %i[index]
+
+  resources :user_answers, only: %i[create]
 end
