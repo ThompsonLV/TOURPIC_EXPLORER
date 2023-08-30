@@ -1,7 +1,4 @@
-<%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon"> %>
 
-
-    <!-- Autres éléments de la barre de navigation -->
     <div class="navbar-content">
 
     <div class="camera-container" data-controller="photos">
@@ -45,15 +42,31 @@
 </div> %>
 
 <div class= "navbar_container">
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="navbar-content">
-
-    <div class="camera-container" data-controller="photos">
-      <button id="camera-button"><%= cl_image_tag("home.svg") %></button>
-      <video id="camera-feed" autoplay></video>
+    <div class= "navbar-content">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "home.svg", class: "logo-image" %>
+      <% end %>
     </div>
-  </div>
+
+    <div class="navbar-content">
+      <div class="camera-container" data-controller="photos">
+        <%= image_tag"camera.svg" %>
+
+        <%# <video id="camera-feed" autoplay></video> %>
+      </div>
+    </div>
+
+      <div class= "navbar-content">
+      <%= link_to root_path, class: "navbar-classement" do %>
+      <%# modifier la root_path %>
+        <%= image_tag "classement.svg", class: "navbar-content" %>
+      <% end %>
+    </div>
+
+      <div class= "navbar-content">
+      <%= link_to root_path, class: "navbar-profil" do %>
+         <%# modifier la root_path %>
+        <%= image_tag "profil.svg", class: "navbar-content" %>
+      <% end %>
+    </div>
 </div>
