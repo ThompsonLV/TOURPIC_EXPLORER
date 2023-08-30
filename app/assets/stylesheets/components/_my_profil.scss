@@ -1,13 +1,18 @@
 .profil-card{
   border-radius: 12px;
   display: flex;
-  background-color: aqua;
   padding: 2rem;
   margin-top: 8px;
+  background-image: asset_url('image_4.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 .name{
-align-items: center;}
+align-items: center;
+color: white;
+}
 
 .avatar{
   margin: 8px;
@@ -28,11 +33,39 @@ align-items: center;}
 }
 
 .card-back {
-  background-color: rgb(92, 91, 92);
-  border-radius: 12px;
   display: flex;
+  padding: 19px 15px 24px 16px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 8px;
+  gap: 4px;
+  border-radius: 20px;
+  background: var(--couleur-2, #C1F1E0);
+
+}
+
+.title-trophy {
+  font-weight: bold;
+  color: #000;
+/* description */
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+
+}
+
+.number {
+font-family: Inter;
+font-size: 15px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.number-e {
+  font-family: 'inter';
+  font-weight: bold;
+  font-size: 32px;
+  font-weight: 600;
+
+
 }
