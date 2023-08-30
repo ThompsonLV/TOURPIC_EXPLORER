@@ -1,12 +1,25 @@
 
+  <%# Ajouter une condition %>
+<% if @monument.photo.present? %>
 
- <%# <%= cl_image_tag(@monument.photo.first.key, height: 200, crop: :fill) %>
+ <%= cl_image_tag(@monument.photo.key, class: "photo_show") %>
+ <div class= "info_type">
+  <p class= "info">19 flasheurs</p>
+  <div class="separator"></div>
+  <p class= "info">+400pt</p>
+  <div class="separator"></div>
+  <p class= "info">A 3km</p>
+ </div>
 
 <h2 class= "titre_show"><%= @monument.title %></h2>
 <div class= "short_description">
   <%= @monument.short_description %>
-</div>
 
+    <%= link_to map_monument_path, class: "img_gps" do %>
+          <%= image_tag "map.svg", class: "img_gps" %>
+          <p class= "go">Let's go!</p>
+        <% end %>
+</div>
 
 <div class= "map_chemin">
   <div id="map_show"
@@ -14,11 +27,52 @@
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <div class="info-container">
+    <div class= "chemin">
+      <h2>Sur votre chemin</h2>
+      <%= @monument.short_description.truncate(30) %>
+    </div>
+    <div class= "bulle_container">
+      <div class= "bulle d-flex align-items-center justify-content-center">
+        <div><%= image_tag "map_market.svg", class: "img_bulle" %>A 4 Km</div>
+      </div>
+      <div class= "bulle d-flex align-items-center justify-content-center">
+        <div><%= image_tag "profil_market.svg", class: "img_bulle" %>5 Flash</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <h2>Sur votre chemin</h2>
-
+<div class= "map_chemin">
+  <div id="map_show"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="info-container">
+    <div class= "chemin">
+      <h2>Sur votre chemin</h2>
+      <%= @monument.short_description.truncate(30) %>
+    </div>
+    <div class= "bulle_container">
+      <div class= "bulle d-flex align-items-center justify-content-center">
+        <div><%= image_tag "map_market.svg", class: "img_bulle" %>A 4 Km</div>
+      </div>
+      <div class= "bulle d-flex align-items-center justify-content-center">
+        <div><%= image_tag "profil_market.svg", class: "img_bulle" %>5 Flash</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-<%= link_to "Quizz", monument_questions_path(@monument) %>
+<% else %>
 
+<%# Si le user à flashé le monument, afficher :  %>
+
+ <%# <% <%= cl_image_tag(@monument.photo.key, height: 200, crop: :fill) %>
+<%# <% <p><%= @monument.long_description</p>
+
+<%= link_to "Quizz", monument_questions_path(@monument) %> 
+
+<% end %>

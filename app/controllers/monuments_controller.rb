@@ -14,6 +14,17 @@ class MonumentsController < ApplicationController
   end
 
   def show
+    @markers = [
+      {
+        lat: @monument.latitude,
+        lng: @monument.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {monument: @monument}),
+      }
+    ]
+  end
+
+  def map
+    
   end
 
   private
