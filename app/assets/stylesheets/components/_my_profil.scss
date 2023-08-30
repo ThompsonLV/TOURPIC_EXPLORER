@@ -1,46 +1,65 @@
 .profil-card{
   border-radius: 12px;
   display: flex;
+  justify-content: space-between;
   padding: 2rem;
   margin-top: 8px;
   background-image: asset_url('image_4.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .name{
-align-items: center;
-color: white;
-}
-
-.avatar{
-  margin: 8px;
-  width: 150px;
-  height: 250px;
-  border-radius: 26%;
-  align-items: flex-end;
-  margin-left: 52px ;
+  align-items: center;
+  color: white;
 }
 
 .classement {
   display: grid;
-  height: 80px;
   grid-template-columns: 1fr 1fr 1fr ;
   margin: 8px;
   align-items: center;
-  gap: 4px;
+  gap: 16px;
 }
 
 .card-back {
+  height: 108px;
   display: flex;
-  padding: 19px 15px 24px 16px;
+  padding: 12px 6px 12px 6px;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
   border-radius: 20px;
   background: var(--couleur-2, #C1F1E0);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
 
+.users-card{
+  height: 80px;
+  display: flex;
+  background-color: $blue;
+  padding: 12px 8px 12px 8px;
+  border-radius: 16px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.users-card-infos{
+  flex-grow: 1;
+}
+
+.users-name-pourcent{
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.users-progression{
+  border-radius: 2px;
+  height: 8px;
+  background-color: $cyan ;
+  width: 95%;
 }
 
 .title-trophy {
@@ -50,7 +69,6 @@ color: white;
   font-family: Inter;
   font-size: 12px;
   font-weight: 500;
-
 }
 
 .number {
@@ -66,6 +84,4 @@ line-height: normal;
   font-weight: bold;
   font-size: 32px;
   font-weight: 600;
-
-
 }
