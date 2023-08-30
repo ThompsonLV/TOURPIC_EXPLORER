@@ -1,7 +1,7 @@
+<%# <%= cl_image_tag(@monument.photos.first.key, height: 200, crop: :fill) %> %>
+
+<h2><%= @monument.title %></h2>
+
+<%= @monument.short_description %>
+
 <%= link_to "Quizz", monument_questions_path(@monument) %>
- <%= cl_image_tag(monument.photos.first.key, height: 200, crop: :fill) %>
-
-<h2><%= monument.title %></h2>
-
-<%= monument.short_description %>
-

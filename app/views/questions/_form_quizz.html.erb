@@ -1,0 +1,12 @@
+<div>
+  <h3><%= question.content%></h3>
+  <%= form_with model: UserAnswer.new, html: { data: { quizz_target: "answer",  action: "submit->quizz#increment" }} do |f| %>
+    <% question.answers.each do |answer| %>
+      <div>
+        <%= answer.content %>
+        <%= f.radio_button :answer_id, answer.id, data: {quizz_target: "input"}%>
+      </div>
+    <% end %>
+    <%= f.submit "Valider" %>
+  <% end %>
+</div>

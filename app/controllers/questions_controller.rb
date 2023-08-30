@@ -2,11 +2,8 @@ class QuestionsController < ApplicationController
   before_action :set_monument, only: :show
 
   def index
-    @questions
-    @monument = Monument.find(params[:monument_id])
-    if @monument
-      @questions = @monument.questions
-    end
-    @question = Question.new
+    @monument            = Monument.find(params[:monument_id])
+    @number_of_questions = @monument.questions.count
+    @question            = @monument.questions.first if @monument
   end
 end
