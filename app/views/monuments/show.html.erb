@@ -1,7 +1,20 @@
 <%= link_to "Quizz", monument_questions_path(@monument) %>
- <%= cl_image_tag(monument.photos.first.key, height: 200, crop: :fill) %>
 
-<h2><%= monument.title %></h2>
+ <%# <%= cl_image_tag(@monument.photo.first.key, height: 200, crop: :fill) %>
 
-<%= monument.short_description %>
+<h2 class= "titre_show"><%= @monument.title %></h2>
+<div class= "short_description">
+  <%= @monument.short_description %>
+</div>
 
+
+<div class= "map_chemin">
+  <div id="map_show"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <h2>Sur votre chemin</h2>
+
+</div>
