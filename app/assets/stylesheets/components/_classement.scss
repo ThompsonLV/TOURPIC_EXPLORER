@@ -1,0 +1,48 @@
+.user-cards-all{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.users-card{
+  height: 80px;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient($blue, #4e26ff);  padding: 12px 16px 12px 32px;
+  border-radius: 16px;
+  margin-bottom: 8px;
+  position: relative
+}
+
+.users-card-infos{
+  flex-grow: 1;
+}
+
+.users-name-pourcent{
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.users-progression{
+  border-radius: 2px;
+  height: 8px;
+  background-color: $cyan ;
+  width: 95%;
+}
+
+.rank{
+  background-color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 16px;
+  left: -24px;
+  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

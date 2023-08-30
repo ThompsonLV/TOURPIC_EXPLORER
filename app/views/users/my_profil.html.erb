@@ -1,15 +1,16 @@
-<div class="container">
+<div class="container" data-controller="toggle">
   <div class="profil-card">
     <div class="performance">
       <h2 class="name"><%= @user.first_name %></h1>
-      <p>Level</p>
-        <h2 class="number">32</h2>
-      <p>Bibliothèque</p>
-        <h2 class="number">25 monuments</h2>
-      <p>Followers</p>
-        <h2 class="number">954</h2>
+      <h4>Level</h4>
+        <p class="number">32</p>
+      <h4>Bibliothèque</h4>
+        <p class="number">25 monuments</p>
+      <h4>Followers</h4>
+        <p class="number">954</p>
     </div>
     <img class="avatar-large" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+  <button class="more" data-action="click->toggle#fire" data-toggle-target="changeTitle">Voir classement</button>
   </div>
   <div class="classement">
     <div class="card-back">
@@ -22,23 +23,45 @@
     </div>
     <div class="card-back">
       <h4 class="number-e">50</h4>
-        <p class="title-trophy">Monuments manquants </p>
+        <p class="title-trophy">Manquants </p>
     </div>
   </div>
-  <div class="user-cards-all">
-    <% 3.times do %>
-      <div class="users-card">
-        <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-        <div class="users-card-infos">
-          <div class="users-name-pourcent">
-            <p class="name">Pierre</p>
-            <p>95%</p>
-          </div>
-          <div class="users-progression">
-            <%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %>
+
+  <%# ICI METTRE UN JS POUR AFFICHER SOIT LES BATIMENTS DEBLOQUE SOIT LE CLASSEMENT %>
+
+  <%# LA LISTE DES BATIMENTS DEBLOQUES%>
+
+    <div class="unlockek-monuments" data-toggle-target="togglableElement1">
+      <h4 class="grid-title">Monuments débloqués</h4>
+      <div class="monuments-grid">
+        <% 6.times do %>
+          <img class="monument-card" src="https://api.opera-lyon.com/assets/q80-w960/3817eaf0/visuel_principal_le_projet.jpg" alt="">
+        <% end %>
+      </div>
+    </div>
+
+
+    <%# LE CLASSEMENT DES JOUEURS %>
+  <div class="classement-all-user d-none" data-toggle-target="togglableElement2">
+    <h4 class="grid-title">Classement</h4>
+    <div class="user-cards-all">
+      <% 4.times do %>
+        <div class="users-card">
+          <div class="rank">1</div>
+          <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+          <div class="users-card-infos">
+            <div class="users-name-pourcent">
+              <p class="name">Pierre</p>
+              <p>95%</p>
+            </div>
+            <div class="users-progression">
+              <%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+
+
 </div>

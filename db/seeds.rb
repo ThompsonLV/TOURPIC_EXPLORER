@@ -13,6 +13,9 @@ canuts = Monument.create!(
   points: 500,
   address: "36 Bd des Canuts, 69004 Lyon"
 )
+file_path = Rails.root.join("app/assets/images/canuts.jpeg")
+canuts.photo.attach(io: File.open(file_path), filename: "canuts.jpeg", content_type: "image/jpeg")
+canuts.save
 
 antique = Monument.create!(
   title:"Théâtre antique de Lugdunum",
@@ -26,6 +29,10 @@ antique = Monument.create!(
   points: 600,
   address: " 17 Rue Cleberg, 69005 Lyon"
 )
+file_path = Rails.root.join("app/assets/images/theatre.jpeg")
+antique.photo.attach(io: File.open(file_path), filename: "theatre.jpeg", content_type: "image/jpeg")
+antique.save
+
 
 bellecour = Monument.create!(
   title: "Place Bellecour",
@@ -35,6 +42,9 @@ bellecour = Monument.create!(
     ce qui n'est encore qu'un pâturage porte le nom de pré de « Belle court ».",
   points: 400,
   address: "Pl. Bellecour, 69002 Lyon")
+file_path = Rails.root.join("app/assets/images/bellecour.jpeg")
+bellecour.photo.attach(io: File.open(file_path), filename: "bellecour.jpeg", content_type: "image/jpeg")
+bellecour.save
 
 p "Etape 1"
 questions1 = Question.create!(content: "Quand a eu lieu la révolte des Canuts", monument: canuts)

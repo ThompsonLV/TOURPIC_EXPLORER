@@ -17,8 +17,6 @@ export default class extends Controller {
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-    this.#getUserLocationAndRoute()
-    // Ajouté
   }
 
   #addMarkersToMap() {
@@ -35,25 +33,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
-  }
-
-  #getUserLocationAndRoute() {
-    navigator.geolocation.getCurrentPosition(position => {
-      const userLngLat = [position.coords.longitude, position.coords.latitude];
-
-      const directions = new MapboxDirections({
-        accessToken: mapboxgl.accessToken,
-        unit: 'km',
-        profile: 'mapbox/driving-traffic', // Vous pouvez ajuster le profil de déplacement
-        interactive: false,
-        controls: { instructions: false }
-      });
-
-      directions.setOrigin(userLngLat);
-      directions.setDestination([ MONUMENT_LONGITUDE, MONUMENT_LATITUDE ]);
-
-      this.map.addControl(directions, 'top-left');
-    });
+    this.map.fitBounds(bounds, { padding: 20, maxZoom: 13, duration: 0 })
   }
 }

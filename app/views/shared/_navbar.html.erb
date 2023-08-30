@@ -55,13 +55,15 @@
 
     <div class="navbar-content">
       <div class="camera-container" data-controller="photos">
-        <%= image_tag"camera.svg" %>
-        <%# <video id="camera-feed" autoplay></video> %>
+        <button id="camera-button">
+          <%= image_tag "camera.svg" %>
+        </button>
+        <video id="camera-feed" autoplay></video>
       </div>
     </div>
 
       <div class= "navbar-content">
-      <%= link_to root_path, class: "navbar-classement" do %>
+      <%= link_to my_profil_path, class: "navbar-classement" do %>
       <%# modifier la root_path %>
         <%= image_tag "classement.svg", class: "navbar-content" %>
       <% end %>
