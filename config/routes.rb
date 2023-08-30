@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :monuments, only: %i[index show] do
     resources :questions, only: %i[index show]
+    get 'map', on: :member
   end
 
   resources :users, only: %i[index]
