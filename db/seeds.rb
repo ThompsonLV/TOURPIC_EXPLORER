@@ -16,7 +16,7 @@ url = "https://data.grandlyon.com/fr/datapusher/ws/rdata/apd_apidae.apdlieutouri
 monuments_serialized = URI.open(url).read
 monuments = JSON.parse(monuments_serialized)
 i = 1
-monuments['values'].last(5).each do |monument|
+monuments['values'].first(100).each do |monument|
   if monument['type'] == 'PATRIMOINE_CULTUREL' && monument['illustrations'] != nil # && monument['address']['streetAddress'] && !monument["address"]["streetAddress"].start_with?("entre")
     p "Monument #{i}"
     new_monument = Monument.create!(
@@ -27,10 +27,6 @@ monuments['values'].last(5).each do |monument|
       latitude: monument['lat'],
       longitude: monument['lon']
     )
-
-    # file_path = Rails.root.join("app/assets/images/le-wagon.jpg")
-    # new_monument.photo.attach(io: File.open(file_path), filename: "le-wagon.jpg", content_type: "image/jpg")
-    # new_monument.save
 
     begin
       image_url = monument['illustrations'].first['url']
@@ -57,8 +53,8 @@ le_wagon = Monument.create!(
 )
 
 file_path = Rails.root.join("app/assets/images/le-wagon.jpg")
-new_monument.photo.attach(io: File.open(file_path), filename: "le-wagon.jpg", content_type: "image/jpg")
-new_monument.save
+le_wagon.photo.attach(io: File.open(file_path), filename: "le-wagon.jpg", content_type: "image/jpg")
+le_wagon.save
 
 questions1 = Question.create!(content: "Dans quelle quartier se situe Le Wagon Lyon ?", monument: le_wagon)
 Answer.create!(content: "Confluence", question: questions1, success: false)
