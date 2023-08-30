@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :user_answers, dependent: :destroy
+  has_many :answers, through: :user_answers
   has_many :user_monuments, dependent: :destroy
 
 
