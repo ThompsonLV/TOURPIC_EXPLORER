@@ -18,10 +18,23 @@
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.10);
   height: 62px;
   padding: 12px;
-  justify-content: center;
-  gap: 23px;
   position: absolute;
-  bottom: 10px;
+  bottom: 35px;
   left: 10px;
   right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo-image {
+  width: 31.168px;
+  height: 27.272px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.navbar-content {
+  height: 28px;
+  width: 28px;
 }
