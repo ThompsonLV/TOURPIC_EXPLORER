@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get "my_profil", to: "users#my_profil"
 
   resources :user_answers, only: %i[create]
+
+  resources :user_monuments, only: %i[index]
 end
