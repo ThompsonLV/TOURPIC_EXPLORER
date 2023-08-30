@@ -1,32 +1,33 @@
 import { Controller } from "@hotwired/stimulus"
 
-
 // Connects to data-controller="quizz"
 export default class extends Controller {
-  static values = { numberOfQuestions: Number, numberOfAnsweredQuestions: Number }
-  static targets = ["input", "quizz", "answer"]
+  static targets = ["input", "quizz", "form", "hidden"]
 
   connect() {
-    console.log("connect");
-    console.log(this.numberOfQuestionsValue);
-    this.quizzTarget.dataset.numberOfAnsweredQuestions = 1
-
+    this.questions = []
   }
 
-  increment(event) {
+  answer(event) {
     event.preventDefault();
-    console.log("button");
-    console.log(this.inputTarget.value) // me rend l'id de l'answer
-    console.log(this.answerTarget.action) // me donne le path de user_answer
 
-    const url = `${this.answerTarget.action}`
+    const url = `${this.formTarget.action}`
+    this.questions.push(this.formTarget.dataset.questionId)
+    this.hiddenTarget.value = this.questions
+
+    console.log(this.questions);
 
     fetch(url, {
       method: "POST",
-      headers: {},
-      body: JSON.stringify(data, this.inputTarget)
+      headers: {
+        Accept: "text/plain"
+      },
+      body: new FormData(this.formTarget)
     })
       .then(response => response.text())
-      .then(response.text)
+      .then(data => {
+        console.log(data);
+        this.quizzTarget.innerHTML = data
+      })
   }
 }
