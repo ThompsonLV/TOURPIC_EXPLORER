@@ -2,13 +2,13 @@
 
   <p>otot</p>
 <% else %>
-  <div>
-    <h3><%= question.content%></h3>
+  <div class="container">
+    <h3 class="question-style"><%= question.content%></h3>
     <%= form_with model: UserAnswer.new, html: { data: { question_id: question.id, quizz_target: "form",  action: "submit->quizz#answer" }} do |f| %>
       <%= f.hidden_field :questions, data: { quizz_target: "hidden"} %>
       <% question.answers.each do |answer| %>
-        <div>
-          <%= answer.content %>
+        <div class="radio-button">
+          <%=answer.content %>
           <%= f.radio_button :answer_id, answer.id, data: {quizz_target: "input"}%>
         </div>
       <% end %>
