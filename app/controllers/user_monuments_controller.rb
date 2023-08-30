@@ -1,2 +1,3 @@
 class UserMonumentsController < ApplicationController
+
 end
