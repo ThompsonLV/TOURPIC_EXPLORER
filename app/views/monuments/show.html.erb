@@ -12,15 +12,13 @@
   </div>
 
 <%# EN COURS %>
-  <div class="camera-container" data-controller="photos">
+  <div class="camera-container" data-controller="photos" data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude ] %>">
     <button id="camera-button">
       <%= image_tag "camera.svg" %>
     </button>
       <video id="camera-feed" autoplay></video>
       <img id="captured-image" style="display: none;">
       <button id="capture-button" style="display: none;">Capture</button>
-      <div data-photos-lat-value="<%= @monument.latitude %>"></div>
-      <div data-photos-long-value="<%= @monument.longitude %>"></div>
   </div>
 
 <h2 class= "titre_show"><%= @monument.title %></h2>
