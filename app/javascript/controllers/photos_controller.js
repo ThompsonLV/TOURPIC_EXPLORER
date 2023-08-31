@@ -2,11 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="photos"
 export default class extends Controller {
-  // EN COURS
+
+  static targets = ["camera"]
   static values ={
     coordinates: Array
   }
-
 
   connect() {
     this.verifieUserLocation();
@@ -19,7 +19,7 @@ export default class extends Controller {
     this.captureButton.addEventListener("click", () => {
       this.capturePicture();
       this.stopCameraStream(); // Call the method to stop the camera stream
-  });
+    });
   }
 
   async openCamera() {
@@ -46,7 +46,6 @@ export default class extends Controller {
       this.capturedImage.style.display = "none";
       this.captureButton.style.display = "none";
     }, 3000);
-
   }
 
   stopCameraStream() {
@@ -59,23 +58,25 @@ export default class extends Controller {
 
   verifieUserLocation() {
     const monumentCoordinates = this.coordinatesValue
+    const camera = this.cameraTarget
     console.log("Monument coordonnée", monumentCoordinates);
 
     navigator.geolocation.getCurrentPosition(function(position) {
       const userLongitude = position.coords.longitude;
       const userLatitude = position.coords.latitude;
-      const userCoordinates = [userLongitude, userLatitude]
+      const userCoordinates = [userLatitude, userLongitude]
       console.log("User coordonnée", userCoordinates);
+
+      fetch(`/distance?user=${userCoordinates}&monument=${monumentCoordinates}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data <= 0.03) {
+          camera.classList.toggle("d-none");
+          console.log("yup");
+        } else {
+          console.log("nope");
+        }
+      });
     });
-
-    var distance = userCoordinates.distanceTo(monumentCoordinates);
-    var distanceThreshold = 0.5;
-
-    if (distance <= distanceThreshold) {
-      console.log("Bravo! You are near the monument.");
-    } else {
-      console.log("Sorry, you are not at the right location.");
-    }
-
-  }
-}
+  };
+};
