@@ -55,6 +55,8 @@
   background: var(--couleur-1, #98BEFD);
   margin: 20px;
   padding: 10px;
+  z-index: 999;
+  position: absolute;
 }
 
 .retour-content {

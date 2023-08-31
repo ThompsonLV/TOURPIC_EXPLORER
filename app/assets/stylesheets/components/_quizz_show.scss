@@ -1,0 +1,18 @@
+
+.quizz {
+  border-radius: 8px;
+  background: var(--couleur-1, #98BEFD);
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quizz_btn {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+}
