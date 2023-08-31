@@ -46,6 +46,13 @@ export default class extends Controller {
       this.capturedImage.style.display = "none";
       this.captureButton.style.display = "none";
     }, 3000);
+
+    // ICI MA METHODE POUR CREER MON USER MONEMENT
+    // fetch(`/distance?user=${userCoordinates}&monument=${monumentCoordinates}`)
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     CREATE USER_MONUMENT
+    //   })
   }
 
   stopCameraStream() {
