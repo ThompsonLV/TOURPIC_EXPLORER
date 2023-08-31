@@ -53,17 +53,6 @@
       <% end %>
     </div>
 
-    <div class="navbar-content">
-      <div class="camera-container" data-controller="photos">
-        <button id="camera-button">
-          <%= image_tag "camera.svg" %>
-        </button>
-          <video id="camera-feed" autoplay></video>
-          <img id="captured-image" style="display: none;">
-          <button id="capture-button" style="display: none;">Capture</button>
-      </div>
-    </div>
-
       <div class= "navbar-content">
       <%= link_to my_profil_path, class: "navbar-classement" do %>
       <%# modifier la root_path %>

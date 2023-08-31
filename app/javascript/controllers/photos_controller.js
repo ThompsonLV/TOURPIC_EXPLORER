@@ -2,7 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="photos"
 export default class extends Controller {
+  // EN COURS
+  static values = {
+    lat: Number,
+    long: Number
+  }
+
   connect() {
+    console.log(this.latValue);
+    console.log(this.longValue);
     this.cameraButton = this.element.querySelector("#camera-button");
     this.cameraFeed = this.element.querySelector("#camera-feed");
     this.capturedImage = this.element.querySelector("#captured-image");
@@ -16,6 +24,7 @@ export default class extends Controller {
       this.stopCameraStream(); // Call the method to stop the camera stream
   });
   }
+
   async openCamera() {
     this.captureButton.style.display = "block";
     try {
@@ -49,4 +58,21 @@ export default class extends Controller {
         this.cameraFeed.srcObject = null;
     }
   }
+
+  // verifieUserLocation() {
+  //   // Voir la localisation du monument
+  //   // Sachant que je suis sur la page du monument, j'ai accès à l'id et donc long la
+  //   console.log(this.latTarget.value)
+
+  //   // Récupérer la localisation du User au moment où il clique
+  //   navigator.geolocation.getCurrentPosition(function(position) {
+  //     const userLongitude = position.coords.longitude;
+  //     const userLatitude = position.coords.latitude;
+
+  //   // Vérifier entre les deux si c'est possible
+
+  //     console.log("Bravo")
+  //     console.log("Pas au bon endroit");
+  //   })
+  // }
 }
