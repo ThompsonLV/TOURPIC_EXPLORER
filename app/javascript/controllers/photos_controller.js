@@ -71,9 +71,10 @@ export default class extends Controller {
       .then(response => response.json())
       .then(data => {
         if (data <= 0.03) {
-          camera.classList.toggle("d-none");
+          camera.classList.remove("d-none");
           console.log("yup");
         } else {
+          camera.classList.add("d-none");
           console.log("nope");
         }
       });
