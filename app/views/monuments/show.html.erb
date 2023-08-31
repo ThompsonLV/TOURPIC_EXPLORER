@@ -4,7 +4,7 @@
     <% if @monument.photo.attached? %>
     <%= cl_image_tag(@monument.photo.key, class: "monument_photo") %>
   <% end %>
-    <div class= "short_description">
+    <div class= "long_description">
        <p><%= @monument.long_description%></p>
      </div>
     <div class= "quizz">
