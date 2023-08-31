@@ -12,7 +12,16 @@
   border-radius: 4px;
   background: var(--couleur-1, #98BEFD);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
 
+.btn_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -22,5 +31,48 @@
   width: 256px;
   height: 242.087px;
   flex-shrink: 0;
+  margin: 20px;
 }
 
+.logo_signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-inputs {
+  margin: 20px;
+  border-radius: 4px;
+}
+
+.email_case {
+  border-radius: 4px;
+border: 1px solid #FFF;
+background: var(--couleur-1, #98BEFD);
+}
+
+.signup_btn {
+  color: white;
+  text-decoration: none;
+  margin-left: 80px;
+
+}
+
+.signup_btn:hover {
+  color: black;
+}
+
+.btn_action {
+  color: white;
+  font-weight: bold;
+}
+
+.form-label{
+  color: white;
+  font-weight: bold;
+}
+
+label {
+  color: white;
+  font-weight: bold;
+}
