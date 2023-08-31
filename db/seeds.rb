@@ -79,7 +79,6 @@ p '------------------------'
 
 p "Création des favoris"
 p '------------------------'
-UserMonument.create!(user: @thomas, monument: le_wagon, favoris: true)
 UserMonument.create!(user: @charles,monument: le_wagon, favoris: true)
 UserMonument.create!(user: @lazari, monument: le_wagon, favoris: true)
 
