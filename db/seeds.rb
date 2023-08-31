@@ -56,7 +56,7 @@ file_path = Rails.root.join("app/assets/images/le-wagon.jpg")
 le_wagon.photo.attach(io: File.open(file_path), filename: "le-wagon.jpg", content_type: "image/jpg")
 le_wagon.save
 
-questions1 = Question.create!(content: "Dans quelle quartier se situe Le Wagon Lyon ?", monument: le_wagon)
+questions1 = Question.create!(content: "Dans quel quartier se situe Le Wagon Lyon ?", monument: le_wagon)
 Answer.create!(content: "Confluence", question: questions1, success: false)
 Answer.create!(content: "Croix-rousse", question: questions1, success: true)
 Answer.create!(content: "Part-dieu", question: questions1, success: false)
@@ -66,7 +66,7 @@ Answer.create!(content: "2013", question: questions2, success: true)
 Answer.create!(content: "2018", question: questions2, success: false)
 Answer.create!(content: "2009", question: questions2, success: false)
 
-questions3 = Question.create!(content: "Qui est sur le créateur du Wagon ?", monument: le_wagon)
+questions3 = Question.create!(content: "Qui est le créateur du Wagon ?", monument: le_wagon)
 Answer.create!(content: "Les frères Paillard", question: questions3, success: true)
 Answer.create!(content: "Les jumeaux Gerdon", question: questions3, success: false)
 Answer.create!(content: "Les cousins Fernillon", question: questions3, success: false)
