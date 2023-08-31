@@ -17,6 +17,7 @@ export default class extends Controller {
   });
   }
   async openCamera() {
+    this.captureButton.style.display = "block";
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       this.cameraFeed.srcObject = stream;
@@ -35,6 +36,10 @@ export default class extends Controller {
 
     this.capturedImage.src = canvas.toDataURL("image/png");
     this.capturedImage.style.display = "block";
+    setTimeout(() => {
+      this.capturedImage.style.display = "none";
+      this.captureButton.style.display = "none";
+    }, 3000);
   }
 
   stopCameraStream() {
