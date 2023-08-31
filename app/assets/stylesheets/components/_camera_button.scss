@@ -1,0 +1,32 @@
+.camera-container{
+  margin-top: 58px;
+  text-align: center;
+  z-index: 999;
+}
+
+#camera-button {
+  border: solid 4px #98befd;
+  background-color: white;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+#camera-feed, #captured-image{
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+#capture-button {
+  position: absolute;
+  left: 147px;
+  top: 630px;
+  border: solid 6px #3c85fb;
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}

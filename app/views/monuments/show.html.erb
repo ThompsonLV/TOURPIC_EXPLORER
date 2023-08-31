@@ -2,14 +2,24 @@
   <%# Ajouter une condition %>
 <% if @monument.photo.present? %>
 
- <%= cl_image_tag(@monument.photo.key, class: "photo_show") %>
- <div class= "info_type">
-  <p class= "info">19 flasheurs</p>
-  <div class="separator"></div>
-  <p class= "info">+400pt</p>
-  <div class="separator"></div>
-  <p class= "info">A 3km</p>
- </div>
+  <%= cl_image_tag(@monument.photo.key, class: "photo_show") %>
+  <div class= "info_type">
+    <p class= "info">19 flasheurs</p>
+    <div class="separator"></div>
+    <p class= "info">+400pt</p>
+    <div class="separator"></div>
+    <p class= "info">A 3km</p>
+  </div>
+
+<%# EN COURS %>
+  <div class="camera-container" data-controller="photos" data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude ] %>">
+    <button id="camera-button">
+      <%= image_tag "camera.svg" %>
+    </button>
+      <video id="camera-feed" autoplay></video>
+      <img id="captured-image" style="display: none;">
+      <button id="capture-button" style="display: none;">Capture</button>
+  </div>
 
 <h2 class= "titre_show"><%= @monument.title %></h2>
 <div class= "short_description">
