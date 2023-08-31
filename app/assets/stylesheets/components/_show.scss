@@ -21,6 +21,16 @@
   grid-template-columns: 1fr 35%;
 }
 
+.long_description {
+  border-radius: 5px;
+  background: var(--c-4, #FAE6B1);
+  height: auto;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
 .map_chemin {
   border-radius: 5px;
   background: var(--couleur-1, #98BEFD);
