@@ -1,6 +1,6 @@
 class MonumentsController < ApplicationController
   before_action :set_user, only: %i[]
-  before_action :set_monument, only: %i[show]
+  before_action :set_monument, only: %i[show map]
 
   def index
     @monuments = Monument.all
@@ -26,7 +26,7 @@ class MonumentsController < ApplicationController
   end
 
   def map
-
+    @coords = [@monument.longitude, @monument.latitude]
   end
 
   private
