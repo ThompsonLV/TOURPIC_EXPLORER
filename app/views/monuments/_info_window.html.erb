@@ -1,5 +1,5 @@
 
-<h2><%= monument.title %></h2>
+<h2 class= "map_style"><%= monument.title %></h2>
 <p><%= monument.address %></p>
 
-<%= link_to "Voir", monument_path(monument) %>
+<%= link_to "Voir", monument_path(monument), class: "voir_btn" %>
