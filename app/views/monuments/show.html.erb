@@ -23,13 +23,17 @@
     <p class= "info"><%= @monument.distance_from([45.769436, 4.8348738]).round(2) %> km</p>
   </div>
 
-  <div class="camera-container" data-controller="photos" data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude ] %>">
-    <button id="camera-button">
-      <%= image_tag "camera.svg" %>
-    </button>
+
+  <div class="camera-container" data-controller="photos" data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude] %>">
+    <div class="cam d-none" data-photos-target="camera">
+      <button id="camera-button">
+        <%= image_tag "camera.svg" %>
+      </button>
+
       <video id="camera-feed" autoplay></video>
       <img id="captured-image" style="display: none;">
       <button id="capture-button" style="display: none;">Capture</button>
+    </div>
   </div>
 
   <h2 class= "titre_show"><%= @monument.title %></h2>
