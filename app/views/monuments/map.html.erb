@@ -1,9 +1,14 @@
+ <div class= "retour-content">
+      <%= link_to monument_path, class: "retour-brand" do %>
+        <%= image_tag "retour.svg", class: "retour-image" %>
+      <% end %>
+    </div>
 
-<%# <div class= "return_btn">
-  <%= link_to monument_path(monument) %>
-<%# </div> %>
- <div id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<div id="map"
+  data-controller="direction"
+  data-direction-end-value="<%= @coords %>"
+  data-direction-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+
+<div id="instructions"></div>

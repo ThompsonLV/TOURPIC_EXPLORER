@@ -41,3 +41,22 @@
 .return_btn {
   background-color: red;
 }
+
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+.mapboxgl-ctrl-attrib {
+  display: none !important;
+}
+
+.retour-brand {
+  border-radius: 50px;
+  background: var(--couleur-1, #98BEFD);
+  margin: 20px;
+  padding: 10px;
+}
+
+.retour-content {
+  margin-top: 20px;
+}
