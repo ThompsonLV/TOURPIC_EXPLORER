@@ -29,6 +29,16 @@ class MonumentsController < ApplicationController
     @coords = [@monument.longitude, @monument.latitude]
   end
 
+  def distance_between
+    @distance = Geocoder::Calculations.distance_between(JSON.parse("[#{params[:user]}]"), JSON.parse("[#{params[:monument]}]"))
+    puts @distance
+    respond_to do |format|
+      format.json {
+        render json: @distance
+      }
+    end
+  end
+
   private
 
   def set_monument
