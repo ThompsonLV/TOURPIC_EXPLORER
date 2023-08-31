@@ -115,4 +115,12 @@ filter: blur(6px);
 #camera-button {
   border: 0;
   background-color: white;
+  position: relative
+}
+
+#camera-feed, #captured-image{
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: -730px;
 }
