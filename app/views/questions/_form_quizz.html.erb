@@ -1,18 +1,64 @@
 <% if question.nil? %>
 
-  <p>otot</p>
+<div class="fish-container">
+  <div class="about">
+    <a class="bg_links social portfolio" href="https://www.rafaelalucas.com" target="_blank">
+        <span class="icon"></span>
+    </a>
+    <a class="bg_links social dribbble" href="https://dribbble.com/rafaelalucas" target="_blank">
+        <span class="icon"></span>
+    </a>
+    <a class="bg_links social linkedin" href="https://www.linkedin.com/in/rafaelalucas/" target="_blank">
+        <span class="icon"></span>
+    </a>
+    <a class="bg_links logo"></a>
+  </div>
+  <!-- end about -->
+
+  <div class="ocean">
+    <div class="bubbles">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="fish">
+      <!-- eyes -->
+      <span></span>
+      <span></span>
+      <!-- mouth -->
+      <span></span>
+      <!-- bubbles -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
 <% else %>
-  <div class="container">
-    <h3 class="question-style"><%= question.content%></h3>
+
+  <div class="container-question" data-controller="timer">
+    <div class="bg-question">
+      <h3 class="timer-style" data-timer-target="clock">Timer</h3>
+      <div class="question">
+        <h3 class="question-style"><%= question.content%></h3>
+      </div>
+    </div>
     <%= form_with model: UserAnswer.new, html: { data: { question_id: question.id, quizz_target: "form",  action: "submit->quizz#answer" }} do |f| %>
       <%= f.hidden_field :questions, data: { quizz_target: "hidden"} %>
       <% question.answers.each do |answer| %>
-        <div class="radio-button">
-          <%=answer.content %>
+        <%= f.label :answer_id, answer.content, value: answer.id, class: "radio-button" do %>
+          <span class="answer"><%= answer.content %></span>
           <%= f.radio_button :answer_id, answer.id, data: {quizz_target: "input"}%>
-        </div>
+        <% end %>
       <% end %>
-      <%= f.submit "Valider" %>
+      <%= f.submit "Valider", class: "valid-btn" %>
     <% end %>
   </div>
 
