@@ -5,5 +5,6 @@ class UsersController < ApplicationController
 
   def my_profil
     @user = current_user
+    @monuments = Monument.all
   end
 end
