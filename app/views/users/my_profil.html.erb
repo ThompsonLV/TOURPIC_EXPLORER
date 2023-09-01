@@ -2,7 +2,7 @@
   <div class="profil-card">
     <div class="performance">
       <h2 class="name"><%= @user.first_name %></h1>
-      <h4>Level</h4>
+      <h4>Score</h4>
         <p class="number">1</p>
       <h4>Bibliothèque</h4>
         <p class="number">1 monuments</p>
@@ -32,9 +32,18 @@
     <div class="unlockek-monuments" data-toggle-target="togglableElement1">
       <h4 class="grid-title">Monuments débloqués</h4>
       <div class="monuments-grid">
-        <img class="monument-card" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+        <div class="monument-card">
+          <% @user.user_monuments.each do |monument| %>
+          <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+          <p><%= @monuments.find(monument.monument_id).title %></p>
+          <% end %>
+        </div>
       </div>
     </div>
+
+    <%# Je veux récuperer l'image de mon bâtiment débloqué %>
+    <%# J'ai accès à @user.user_monuments %>
+    <%# En faisant un each je peux récupérer chacun %>
 
       <%# LE CLASSEMENT DES JOUEURS %>
     <div class="classement-all-user d-none" data-toggle-target="togglableElement2">
