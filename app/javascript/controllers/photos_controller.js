@@ -26,7 +26,7 @@ export default class extends Controller {
   async openCamera() {
     this.captureButton.style.display = "block";
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
       this.cameraFeed.srcObject = stream;
     } catch (error) {
       console.error("Erreur lors de l'accès à la caméra :", error);
