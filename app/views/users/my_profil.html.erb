@@ -5,7 +5,7 @@
       <h4>Mon score</h4>
         <p class="number"><%= current_user.score %></p>
       <h4>Bibliothèque</h4>
-        <p class="number">1 monuments</p>
+        <p class="number"><%= @user.user_monuments.count %></p>
       <h4>Followers</h4>
         <p class="number">0</p>
     </div>
@@ -19,11 +19,11 @@
         <p class="title-trophy">Classement</p>
       </div>
       <div class="card-back">
-        <h4 class="number-e">1</h4>
+        <h4 class="number-e"><%= @user.user_monuments.count %></h4>
         <p class="title-trophy">Flash</p>
       </div>
       <div class="card-back">
-        <h4 class="number-e">56</h4>
+        <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
         <p class="title-trophy">Manquants </p>
       </div>
     </div>
