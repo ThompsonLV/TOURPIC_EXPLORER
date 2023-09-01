@@ -9,16 +9,14 @@ class UserAnswersController < ApplicationController
     current_user.update(score: current_user.score + 5) if user_answer.answer.success?
 
     questions = monument.questions.where.not(id: params[:user_answer][:questions].split(","))
-
     question = questions.first
-    p question
 
     respond_to do |format|
       format.html
-      format.text { render partial: "questions/form_quizz", locals: { question: }, formats: :html }
+      format.text { render partial: "questions/form_quizz", locals: { question:, monument: }, formats: :html }
     end
   end
-  
+
   private
 
   def user_answer_params
