@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :user_answers, only: %i[create]
 
-  resources :user_monuments, only: %i[index]
+  resources :user_monuments, only: %i[index create]
 
   get "/distance", to: "monuments#distance_between"
 end

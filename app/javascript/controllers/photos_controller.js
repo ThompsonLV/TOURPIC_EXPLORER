@@ -48,11 +48,13 @@ export default class extends Controller {
     }, 3000);
 
     // ICI MA METHODE POUR CREER MON USER MONEMENT
-    // fetch(`/distance?user=${userCoordinates}&monument=${monumentCoordinates}`)
+    // fetch("/user_monuments", {
+    //   method : 'POST',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: {}
+    // })
     //   .then(response => response.json())
-    //   .then(data => {
-    //     CREATE USER_MONUMENT
-    //   })
+    //   .then(data => console.log(data))
   }
 
   stopCameraStream() {
