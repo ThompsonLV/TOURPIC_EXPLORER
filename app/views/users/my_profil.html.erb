@@ -1,67 +1,61 @@
-<div class="container" data-controller="toggle">
+<div data-controller="toggle">
   <div class="profil-card">
     <div class="performance">
       <h2 class="name"><%= @user.first_name %></h1>
       <h4>Mon score</h4>
         <p class="number"><%= current_user.score %></p>
       <h4>Bibliothèque</h4>
-        <p class="number">25 monuments</p>
+        <p class="number">1 monuments</p>
       <h4>Followers</h4>
-        <p class="number">954</p>
+        <p class="number">0</p>
     </div>
     <img class="avatar-large" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-  <button class="more" data-action="click->toggle#fire" data-toggle-target="changeTitle">Voir classement</button>
+    <button class="more" data-action="click->toggle#fire" data-toggle-target="changeTitle">Voir classement</button>
   </div>
-  <div class="classement">
-    <div class="card-back">
-      <h4 class="number-e">71</h4>
+  <div class="container">
+    <div class="classement">
+      <div class="card-back">
+        <h4 class="number-e">+1000</h4>
         <p class="title-trophy">Classement</p>
-    </div>
-    <div class="card-back">
-      <h4 class="number-e">12</h4>
+      </div>
+      <div class="card-back">
+        <h4 class="number-e">1</h4>
         <p class="title-trophy">Flash</p>
-    </div>
-    <div class="card-back">
-      <h4 class="number-e">50</h4>
+      </div>
+      <div class="card-back">
+        <h4 class="number-e">56</h4>
         <p class="title-trophy">Manquants </p>
-    </div>
-  </div>
-
-  <%# ICI METTRE UN JS POUR AFFICHER SOIT LES BATIMENTS DEBLOQUE SOIT LE CLASSEMENT %>
-
-  <%# LA LISTE DES BATIMENTS DEBLOQUES%>
-
-    <div class="unlockek-monuments" data-toggle-target="togglableElement1">
-      <h4 class="grid-title">Monuments débloqués</h4>
-      <div class="monuments-grid">
-        <% 6.times do %>
-          <img class="monument-card" src="https://api.opera-lyon.com/assets/q80-w960/3817eaf0/visuel_principal_le_projet.jpg" alt="">
-        <% end %>
       </div>
     </div>
 
+    <%# LA LISTE DES BATIMENTS DEBLOQUES%>
+    <div class="unlockek-monuments" data-toggle-target="togglableElement1">
+      <h4 class="grid-title">Monuments débloqués</h4>
+      <div class="monuments-grid">
+        <img class="monument-card" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+      </div>
+    </div>
 
-    <%# LE CLASSEMENT DES JOUEURS %>
-  <div class="classement-all-user d-none" data-toggle-target="togglableElement2">
-    <h4 class="grid-title">Classement</h4>
-    <div class="user-cards-all">
-      <% 4.times do %>
-        <div class="users-card">
-          <div class="rank">1</div>
-          <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-          <div class="users-card-infos">
-            <div class="users-name-pourcent">
-              <p class="name">Pierre</p>
-              <p>95%</p>
-            </div>
-            <div class="users-progression">
-              <%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %>
+      <%# LE CLASSEMENT DES JOUEURS %>
+    <div class="classement-all-user d-none" data-toggle-target="togglableElement2">
+      <h4 class="grid-title">Classement</h4>
+      <div class="user-cards-all">
+        <% 8.times.each_with_index do |index| %>
+          <div class="users-card">
+            <div class="rank"><%= index + 1 %></div>
+            <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+            <div class="users-card-infos">
+              <div class="users-name-pourcent">
+                <p class="name">Pierre</p>
+                <p><%= 100 - (index + 4) %>%</p>
+              </div>
+              <div class="users-progression">
+                <%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-
-
 </div>

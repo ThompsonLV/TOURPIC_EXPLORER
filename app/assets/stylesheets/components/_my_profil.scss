@@ -1,9 +1,8 @@
 .profil-card{
-  border-radius: 12px;
+  border-radius: 0 0 16px 16px;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  margin-top: 8px;
   margin-bottom: 20px;
   background-image: asset_url('image_4.png');
   background-repeat: no-repeat;
@@ -25,7 +24,6 @@
 
 .name{
   align-items: center;
-  color: white;
   font-weight: bold;
 }
 
@@ -84,4 +82,8 @@
   &:hover {
     background-color: $blue;
   }
+}
+
+.fixed{
+  position:fixed
 }

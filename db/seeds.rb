@@ -46,8 +46,16 @@ p 'Construction du Wagon'
 p '------------------------'
 le_wagon = Monument.create!(
   title: "Le Wagon",
-  short_description: "Située dans le quartier de la Croix-Rousse",
-  long_description: "Le Wagon accueille depuis plusieurs années des étudiants",
+  short_description: "Le Wagon : école coding bootcamp renommée pour des
+                    formations intensives en développement web et programmation.",
+  long_description: "Le Wagon est une école de codage ou 'coding bootcamp'
+                    qui propose des formations intensives en développement
+                    web et en programmation informatique. Cette école est
+                    présente dans de nombreuses villes à travers le monde
+                    et offre des programmes de formation destinés à enseigner
+                    les compétences en codage et en développement web en un laps
+                    de temps relativement court, généralement de 9 à 24 semaines,
+                    en fonction du programme choisi.",
   points: 500,
   address: "20 Rue des Capucins, 69001 Lyon"
 )
@@ -79,7 +87,6 @@ p '------------------------'
 
 p "Création des favoris"
 p '------------------------'
-UserMonument.create!(user: @thomas, monument: le_wagon, favoris: true)
 UserMonument.create!(user: @charles,monument: le_wagon, favoris: true)
 UserMonument.create!(user: @lazari, monument: le_wagon, favoris: true)
 
