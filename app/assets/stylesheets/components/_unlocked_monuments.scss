@@ -7,15 +7,19 @@
 .monument-card{
 position: relative;
 
-  p{
+  a{
     text-align: center;
+    font-size: 30px;
+    height: 40px;
+    width: 40px;
+    text-decoration: none;
     position: absolute;
-    top: 60%;
+    color:black;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 4px 12px;
-    border-radius: 11px;
+    border-radius: 50%;
   }
 }
 
