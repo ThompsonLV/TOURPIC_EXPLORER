@@ -1,4 +1,4 @@
-<div class="container" data-controller="toggle">
+<div data-controller="toggle">
   <div class="profil-card">
     <div class="performance">
       <h2 class="name"><%= @user.first_name %></h1>
@@ -12,6 +12,7 @@
     <img class="avatar-large" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
   <button class="more" data-action="click->toggle#fire" data-toggle-target="changeTitle">Voir classement</button>
   </div>
+<div class="container">
   <div class="classement">
     <div class="card-back">
       <h4 class="number-e">71</h4>
@@ -64,4 +65,5 @@
   </div>
 
 
+</div>
 </div>
