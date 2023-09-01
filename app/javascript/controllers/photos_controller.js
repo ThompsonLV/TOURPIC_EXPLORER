@@ -5,7 +5,8 @@ export default class extends Controller {
 
   static targets = ["camera"]
   static values ={
-    coordinates: Array
+    coordinates: Array,
+    monumentId: Number,
   }
 
   connect() {
@@ -47,14 +48,17 @@ export default class extends Controller {
       this.captureButton.style.display = "none";
     }, 3000);
 
-    // ICI MA METHODE POUR CREER MON USER MONEMENT
-    // fetch("/user_monuments", {
-    //   method : 'POST',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: {}
-    // })
-    //   .then(response => response.json())
-    //   .then(data => console.log(data))
+    fetch(`/monuments/${this.monumentIdValue}/user_monuments`, {
+      method : 'POST',
+      headers: {
+        Accept: "application/json",
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
   }
 
   stopCameraStream() {
@@ -63,28 +67,25 @@ export default class extends Controller {
         tracks.forEach(track => track.stop());
         this.cameraFeed.srcObject = null;
     }
+    window.location.reload();
   }
 
   verifieUserLocation() {
     const monumentCoordinates = this.coordinatesValue
     const camera = this.cameraTarget
-    console.log("Monument coordonnée", monumentCoordinates);
 
     navigator.geolocation.getCurrentPosition(function(position) {
       const userLongitude = position.coords.longitude;
       const userLatitude = position.coords.latitude;
       const userCoordinates = [userLatitude, userLongitude]
-      console.log("User coordonnée", userCoordinates);
 
       fetch(`/distance?user=${userCoordinates}&monument=${monumentCoordinates}`)
       .then(response => response.json())
       .then(data => {
         if (data <= 0.03) {
           camera.classList.remove("d-none");
-          console.log("yup");
         } else {
           camera.classList.add("d-none");
-          console.log("nope");
         }
       });
     });
