@@ -22,7 +22,10 @@
   </div>
 
 
-  <div class="camera-container" data-controller="photos" data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude] %>">
+  <div class="camera-container"
+      data-controller="photos"
+      data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude] %>"
+      data-photos-monument-id-value="<%= @monument.id %>">
     <div class="cam d-none" data-photos-target="camera">
       <button id="camera-button">
         <%= image_tag "camera.svg" %>
