@@ -6,6 +6,8 @@ class UserAnswersController < ApplicationController
     user_answer.save
     monument = user_answer.answer.question.monument
 
+    current_user.update(score: current_user.score + 5) if user_answer.answer.success?
+
     questions = monument.questions.where.not(id: params[:user_answer][:questions].split(","))
 
     question = questions.first
@@ -16,7 +18,7 @@ class UserAnswersController < ApplicationController
       format.text { render partial: "questions/form_quizz", locals: { question: }, formats: :html }
     end
   end
-
+  
   private
 
   def user_answer_params
