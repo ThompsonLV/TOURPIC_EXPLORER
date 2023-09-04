@@ -121,6 +121,14 @@ export default class extends Controller {
             'circle-color': '#3887be' // Couleur bleue
           }
         })
+
+        const bounds = new mapboxgl.LngLatBounds(
+          start,
+          end
+          );
+        map.fitBounds(bounds, {
+          padding: 20
+        });
       })
     })
   }
