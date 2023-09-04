@@ -3,7 +3,10 @@ class UserAnswersController < ApplicationController
   def create
     user_answer = UserAnswer.new(user_answer_params)
     user_answer.user = current_user
-    user_answer.save
+    user_answer.save!
+    p user_answer
+    p user_answer.answer
+    p user_answer.answer.question
     monument = user_answer.answer.question.monument
 
     current_user.update(score: current_user.score + 5) if user_answer.answer.success?
