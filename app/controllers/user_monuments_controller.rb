@@ -1,10 +1,12 @@
 class UserMonumentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
   def create
+    photo = params[:photo]
     @user_monument = UserMonument.new
     @user_monument.user = current_user
     @user_monument.monument = Monument.find(params[:monument_id])
-    @user_monument.save
+    @user_monument.photos.attach(io: photo, filename: 'captured_image.png', content_type: 'image/png')
+    @user_monument.save!
     render json: {
       toto: "lalal"
     }
