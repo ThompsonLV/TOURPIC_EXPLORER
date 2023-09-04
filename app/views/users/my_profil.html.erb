@@ -28,54 +28,47 @@
   </div>
 </div>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide container" data-bs-ride="carousel">
-  <div class="carousel-inner">
-
-    <div class="carousel-item active">
-      <h2 class="grid-title">Classement</h2>
-      <div class="classement-all-user">
-        <div class="user-cards-all">
-          <% 8.times.each_with_index do |index| %>
-            <div class="users-card">
-              <div class="rank"><%= index + 1 %></div>
-              <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-              <div class="users-card-infos">
-                <div class="users-name-pourcent">
-                  <p class="name">Pierre</p>
-                  <p><%= 100 - (index + 4) %>%</p>
-                </div>
-                <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
-              </div>
-            </div>
+<div class="container">
+  <div class="swipable-element">
+    <div class="unlocked-monuments">
+      <h2 class="grid-title">Monuments débloqués</h2>
+      <div class="monuments-grid">
+        <div class="monument-card">
+          <% @user.user_monuments.each do |monument| %>
+          <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+          <p><%= link_to "+", monument_path(monument.monument_id)%></p>
           <% end %>
         </div>
       </div>
     </div>
 
-    <div class="carousel-item">
-      <h2 class="grid-title">Monuments débloqués</h2>
-      <div class="unlockek-monuments">
-        <div class="monuments-grid">
-          <div class="monument-card">
-            <% @user.user_monuments.each do |monument| %>
-            <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
-            <p><%= link_to "+", monument_path(monument.monument_id)%></p>
-            <% end %>
-          </div>
+    <div class="my-monuments d-none" >
+      <h2 class="grid-title">Mes photos</h2>
+      <div class="monuments-grid">
+        <div class="monument-card">
+          <% @user.user_monuments.each do |monument| %>
+            <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
+          <% end %>
         </div>
       </div>
     </div>
 
-    <div class="carousel-item">
-      <h2 class="grid-title">Mes photos</h2>
-      <div class="my-monuments" >
-        <div class="monuments-grid">
-          <div class="monument-card">
-            <% @user.user_monuments.each do |monument| %>
-              <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
-            <% end %>
+    <div class="classement-all-user d-none">
+      <h2 class="grid-title">Classement</h2>
+      <div class="user-cards-all">
+        <% 8.times.each_with_index do |index| %>
+          <div class="users-card">
+            <div class="rank"><%= index + 1 %></div>
+            <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+            <div class="users-card-infos">
+              <div class="users-name-pourcent">
+                <p class="name">Pierre</p>
+                <p><%= 100 - (index + 4) %>%</p>
+              </div>
+              <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
