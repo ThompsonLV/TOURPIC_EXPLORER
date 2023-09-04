@@ -31,9 +31,9 @@
 <div class="container" data-controller="tabs">
 
   <div class="menu-tab">
-    <div class="title-tab" data-action="click->tabs#toggle1">Monuments débloqués</div>
-    <div class="title-tab border-tabs" data-action="click->tabs#toggle2">Mes photos</div>
-    <div class="title-tab" data-action="click->tabs#toggle3">Classement</div>
+    <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
+    <div class="title-tab border-tabs" data-action="click->tabs#toggle2" data-tabs-target="title2">Mes photos</div>
+    <div class="title-tab" data-action="click->tabs#toggle3" data-tabs-target="title3">Classement</div>
   </div>
 
   <div class="monuments-grid" data-tabs-target="unlockedMonuments">
@@ -60,7 +60,7 @@
         <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
         <div class="users-card-infos">
           <div class="users-name-pourcent">
-            <p class="name">Pierre</p>
+            <p class="name"><%= ["Pierre", "Jean", "Edouard", "Clémence", "Marie", "Justine"].sample %></p>
             <p><%= 100 - (index + 4) %>%</p>
           </div>
           <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>

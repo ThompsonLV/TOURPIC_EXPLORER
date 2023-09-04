@@ -7,11 +7,15 @@ margin-bottom: 24px;
   width: 100%;
   padding: 4px;
   text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 
-    &:active{
-      background-color: $blue;
-      color: white
-  }
+}
+
+.underline{
+  background-color: $blue;
+  color: white
 }
 
 .border-tabs{
