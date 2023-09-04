@@ -26,7 +26,7 @@ export default class extends Controller {
   async openCamera() {
     this.captureButton.style.display = "block";
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } });
       this.cameraFeed.srcObject = stream;
     } catch (error) {
       console.error("Erreur lors de l'accès à la caméra :", error);
@@ -55,17 +55,17 @@ export default class extends Controller {
         'Content-Type': 'application/json'
       },
     })
-      .then(response => response.json())
-      .then(data => {
+    .then(response => response.json())
+    .then(data => {
         console.log(data);
       })
-  }
+    }
 
-  stopCameraStream() {
+    stopCameraStream() {
     if (this.cameraFeed.srcObject) {
-        const tracks = this.cameraFeed.srcObject.getTracks();
-        tracks.forEach(track => track.stop());
-        this.cameraFeed.srcObject = null;
+      const tracks = this.cameraFeed.srcObject.getTracks();
+      tracks.forEach(track => track.stop());
+      this.cameraFeed.srcObject = null;
     }
     window.location.reload();
   }
