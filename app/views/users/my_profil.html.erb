@@ -36,25 +36,33 @@
   <div class="swipable-element" >
     <div class="unlocked-monuments" data-swiper-target="unlockedMonuments">
       <h2 class="grid-title">Monuments débloqués</h2>
-      <div class="monuments-grid">
-        <div class="monument-card">
-          <% @user.user_monuments.each do |monument| %>
-          <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
-          <p><%= link_to "+", monument_path(monument.monument_id)%></p>
-          <% end %>
+      <% if @user.user_monuments === true %>
+        <div class="monuments-grid">
+          <div class="monument-card">
+            <% @user.user_monuments.each do |monument| %>
+            <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+            <p><%= link_to "+", monument_path(monument.monument_id)%></p>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <h2>Vous n'avez débloqué de monument</h2>
+      <% end %>
     </div>
 
     <div class="my-monuments d-none" data-swiper-target="myMonuments">
       <h2 class="grid-title">Mes photos</h2>
-      <div class="monuments-grid">
-        <div class="monument-card">
-          <% @user.user_monuments.each do |monument| %>
-            <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
-          <% end %>
+      <% if @user.user_monuments === true %>
+        <div class="monuments-grid">
+          <div class="monument-card">
+            <% @user.user_monuments.each do |monument| %>
+              <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <h2>Vous n'avez pris de photos</h2>
+      <% end %>
     </div>
 
     <div class="classement-all-user d-none" data-swiper-target="classement">
