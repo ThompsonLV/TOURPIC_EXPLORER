@@ -35,7 +35,7 @@
         <div id="countdown-number">
           <h3 data-timer-target="clock" class="timer-type"></h3>
         </div>
-        <svg>
+        <svg class="timer">
           <circle r="18" cx="20" cy="20"></circle>
         </svg>
       </div>
@@ -43,15 +43,27 @@
         <h3 class="question-style"><%= question.content%></h3>
       </div>
     </div>
-    <%= form_with model: UserAnswer.new, html: { data: { question_id: question.id, quizz_target: "form",  action: "submit->quizz#answer" }} do |f| %>
+    <%= form_with model: UserAnswer.new, html: { data: { question_id: question.id, quizz_target: "form",  action: "submit->quizz#next" }} do |f| %>
       <%= f.hidden_field :questions, data: { quizz_target: "hidden"} %>
       <% question.answers.each do |answer| %>
-        <%= f.label :answer_id, answer.content, value: answer.id, class: "radio-button" do %>
-          <span class="answer"><%= answer.content %></span>
+        <%= f.label :answer_id, answer.content, value: answer.id, class: "radio-button", data: { success: answer.success, action: "change->quizz#select"} do %>
+          <span class="content"><%= answer.content %></span>
+          <div class="answer-img">
+            <% if answer.success %>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            <% else %>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+
+            <% end %>
+          </div>
           <%= f.radio_button :answer_id, answer.id, data: {quizz_target: "input"}%>
         <% end %>
       <% end %>
-      <%= f.submit "Valider", class: "valid-btn" %>
+      <%= f.submit "Suivant",disabled: true,  class: "valid-btn", data: {quizz_target:"suivant"}%>
     <% end %>
   </div>
 
