@@ -1,14 +1,14 @@
 
 
-<div id="map"
-  data-controller="direction"
-  data-direction-end-value="<%= @coords %>"
-  data-direction-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div id="map"
+    data-controller="direction"
+    data-direction-end-value="<%= @coords %>"
+    data-direction-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div data-controller="navigation">
       <div class= "retour-content">
-      <%= link_to monument_path, class: "retour-brand" do %>
-        <%= image_tag "retour.svg", class: "retour-image" %>
-      <% end %>
- <%# <button id="zoomto" class="btn-control" data-action="click->map#zoomToBounds">Localisation</button> %>
-  <%# <div id='map-overlay'>Distance: </div> %>
+        <%= link_to monument_path, class: "retour-brand" do %>
+          <%= image_tag "retour.svg", class: "retour-image" %>
+        <% end %>
+      </div>
     </div>
-</div>
+  </div>

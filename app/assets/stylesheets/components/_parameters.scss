@@ -1,0 +1,80 @@
+
+.log {
+  text-align: center; /* Pour centrer le texte horizontalement */
+  display: flex;
+  align-items: center; /* Pour centrer le texte verticalement */
+  justify-content: center; /* Pour centrer le texte horizontalement */
+  height: 100%;
+  background-color:rgb(202, 200, 200) ;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  }
+
+.info_profil {
+  background-color: rgb(241, 241, 241);
+  border-radius: 10px;
+  width: 350px;
+  height: 58vh;
+  margin: 20px;
+  padding: 20px;
+}
+
+
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.user-details {
+  flex-grow: 1;
+}
+
+.user-details h2 {
+  font-size: 20px;
+}
+
+.user-actions {
+  text-align: center;
+}
+
+.user-actions {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.user-actions a {
+  text-decoration: none;
+}
+.user-actions :hover {
+  background-color: #555;
+}
