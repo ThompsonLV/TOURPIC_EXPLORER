@@ -28,9 +28,13 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="swipable-element">
-    <div class="unlocked-monuments">
+<div class="container"
+  data-controller="swiper"
+  data-swiper-target="touch"
+  data-action="touchstart->swiper#handleStart touchend->swiper#handleEnd"
+>
+  <div class="swipable-element" >
+    <div class="unlocked-monuments" data-swiper-target="unlockedMonuments">
       <h2 class="grid-title">Monuments débloqués</h2>
       <div class="monuments-grid">
         <div class="monument-card">
@@ -42,7 +46,7 @@
       </div>
     </div>
 
-    <div class="my-monuments d-none" >
+    <div class="my-monuments d-none" data-swiper-target="myMonuments">
       <h2 class="grid-title">Mes photos</h2>
       <div class="monuments-grid">
         <div class="monument-card">
@@ -53,7 +57,7 @@
       </div>
     </div>
 
-    <div class="classement-all-user d-none">
+    <div class="classement-all-user d-none" data-swiper-target="classement">
       <h2 class="grid-title">Classement</h2>
       <div class="user-cards-all">
         <% 8.times.each_with_index do |index| %>
