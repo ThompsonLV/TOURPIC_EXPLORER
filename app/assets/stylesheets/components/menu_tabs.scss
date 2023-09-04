@@ -1,11 +1,17 @@
 .menu-tab {
 display: flex;
+margin-bottom: 24px;
 }
 
 .title-tab{
   width: 100%;
   padding: 4px;
   text-align: center;
+
+    &:active{
+      background-color: $blue;
+      color: white
+  }
 }
 
 .border-tabs{

@@ -28,46 +28,44 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" data-controller="tabs">
 
   <div class="menu-tab">
-    <div class="title-tab" data-tabs-action>Monuments débloqués</div>
-    <div class="title-tab border-tabs">Mes photos</div>
-    <div class="title-tab">Classement</div>
+    <div class="title-tab" data-action="click->tabs#toggle1">Monuments débloqués</div>
+    <div class="title-tab border-tabs" data-action="click->tabs#toggle2">Mes photos</div>
+    <div class="title-tab" data-action="click->tabs#toggle3">Classement</div>
   </div>
 
-  <div class="unlocked-monuments" data-swiper-target="unlockedMonuments">
-    <div class="monuments-grid">
-      <div class="monument-card">
-        <% @user.user_monuments.each do |monument| %>
-        <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
-        <p><%= link_to "+", monument_path(monument.monument_id)%></p>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="monuments-grid">
-      <div class="monument-card">
-        <% @user.user_monuments.each do |monument| %>
-          <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="user-cards-all">
-      <% 8.times.each_with_index do |index| %>
-        <div class="users-card">
-          <div class="rank"><%= index + 1 %></div>
-          <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-          <div class="users-card-infos">
-            <div class="users-name-pourcent">
-              <p class="name">Pierre</p>
-              <p><%= 100 - (index + 4) %>%</p>
-            </div>
-            <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
-          </div>
-        </div>
+  <div class="monuments-grid" data-tabs-target="unlockedMonuments">
+    <div class="monument-card">
+      <% @user.user_monuments.each do |monument| %>
+      <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+      <p><%= link_to "+", monument_path(monument.monument_id)%></p>
       <% end %>
     </div>
+  </div>
+
+  <div class="monuments-grid d-none" data-tabs-target="myMonuments">
+    <div class="monument-card">
+      <% @user.user_monuments.each do |monument| %>
+        <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-cards-all d-none" data-tabs-target="classement">
+    <% 8.times.each_with_index do |index| %>
+      <div class="users-card">
+        <div class="rank"><%= index + 1 %></div>
+        <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+        <div class="users-card-infos">
+          <div class="users-name-pourcent">
+            <p class="name">Pierre</p>
+            <p><%= 100 - (index + 4) %>%</p>
+          </div>
+          <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
