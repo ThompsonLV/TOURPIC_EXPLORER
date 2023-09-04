@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get 'users/sign_in'
+  # get 'users/sign_in'
 
   resources :monuments, only: %i[index show] do
     resources :questions, only: %i[index show]
@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     get 'map', on: :member
   end
 
-  resources :users, only: %i[index]
+  # resources :users, only: %i[index]
   get "my_profil", to: "users#my_profil"
-
+  get "parameters", to: "users#parameters"
   resources :user_answers, only: %i[create]
 
   get "/distance", to: "monuments#distance_between"
