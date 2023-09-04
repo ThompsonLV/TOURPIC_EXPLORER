@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="photos"
 export default class extends Controller {
 
   static targets = ["camera"]
@@ -19,14 +18,13 @@ export default class extends Controller {
     this.cameraButton.addEventListener("click", this.openCamera.bind(this));
     this.captureButton.addEventListener("click", () => {
       this.capturePicture();
-      this.stopCameraStream(); // Call the method to stop the camera stream
     });
   }
 
   async openCamera() {
     this.captureButton.style.display = "block";
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } });
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
       this.cameraFeed.srcObject = stream;
     } catch (error) {
       console.error("Erreur lors de l'accès à la caméra :", error);
@@ -43,25 +41,30 @@ export default class extends Controller {
 
     this.capturedImage.src = canvas.toDataURL("image/png");
     this.capturedImage.style.display = "block";
-    setTimeout(() => {
-      this.capturedImage.style.display = "none";
-      this.captureButton.style.display = "none";
-    }, 3000);
 
-    fetch(`/monuments/${this.monumentIdValue}/user_monuments`, {
-      method : 'POST',
-      headers: {
-        Accept: "application/json",
-        'Content-Type': 'application/json'
-      },
-    })
-    .then(response => response.json())
+    fetch(this.capturedImage.src)
+    .then(response => response.blob())
     .then(data => {
-        console.log(data);
-      })
-    }
+      const formData = new FormData();
+      formData.append('photo', data, 'captured_image.png');
+      formData.append('monumentId', this.monumentIdValue);
 
-    stopCameraStream() {
+      fetch(`/monuments/${this.monumentIdValue}/user_monuments`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        this.stopCameraStream();
+      });
+    })
+
+  }
+
+    async stopCameraStream() {
     if (this.cameraFeed.srcObject) {
       const tracks = this.cameraFeed.srcObject.getTracks();
       tracks.forEach(track => track.stop());
