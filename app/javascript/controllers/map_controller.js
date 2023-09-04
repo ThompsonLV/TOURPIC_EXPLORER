@@ -33,7 +33,7 @@ export default class extends Controller {
           .setPopup(popup)
           .addTo(this.map)
         } else {
-        new mapboxgl.Marker()
+          new mapboxgl.Marker()
           .setLngLat([ marker.lng, marker.lat ])
           .addTo(this.map)
       }

@@ -7,4 +7,8 @@ class UsersController < ApplicationController
     @user = current_user
     @monuments = Monument.all
   end
+
+  def parameters
+    @user = current_user
+  end
 end
