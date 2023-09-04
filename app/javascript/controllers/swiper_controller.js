@@ -24,7 +24,7 @@ export default class extends Controller {
 
 
     const difference = xPosEnd - this.xPosStart;
-    const minDistance = 130
+    const minDistance = 100
     console.log("Différence entre xPosStart et xPosEnd:", difference);
     if (difference < -minDistance && !unlockedMonuments.classList.contains("d-none")) {
       unlockedMonuments.classList.add("d-none");
