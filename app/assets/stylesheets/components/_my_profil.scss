@@ -9,7 +9,6 @@
   background-size: cover;
   background-position: center center;
   box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.2);
-  position: relative;
 
   h4{
     margin-bottom: 4px;
@@ -65,25 +64,14 @@
   margin-bottom: 0;
 }
 
-.more {
-  position: absolute;
-  bottom: -12px;
-  left: 40px;
-  background-color: rgb(255,255,255);
-  height: auto;
-  width: auto;
-  border-radius: 12px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-
-  &:hover {
-    background-color: $blue;
-  }
-}
-
 .fixed{
   position:fixed
+}
+
+.my-photo-card-picture{
+  display: flex;
+  border-radius: 12px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
