@@ -7,6 +7,5 @@ class User < ApplicationRecord
   has_many :user_answers, dependent: :destroy
   has_many :answers, through: :user_answers
   has_many :user_monuments, dependent: :destroy
-
-
+  has_many :monuments, through: :user_monuments
 end

@@ -7,9 +7,9 @@ class UserMonumentsController < ApplicationController
     @user_monument.monument = Monument.find(params[:monument_id])
     @user_monument.photos.attach(io: photo, filename: 'captured_image.png', content_type: 'image/png')
     @user_monument.save!
-    render json: {
-      toto: "lalal"
-    }
+
+    new_score = current_user.score + @user_monument.monument.points
+    current_user.update!(score: new_score)
   end
 
   private
