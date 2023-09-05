@@ -112,14 +112,15 @@ p '------------------------'
 
 users = User.all
 monuments = Monument.all
+
 a = 1
 users.each do |user|
   p "User #{a}"
-  random_monument = monuments.sample
   (1..10).to_a.sample.times do
+    random_monument = monuments.sample
     new_user_monument = UserMonument.create!(user: user, monument: random_monument, favoris: true)
 
-    image_url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.visiterlyon.com%2Fdecouvrir%2Fsites-et-monuments%2Fsites-et-monuments-remarquables%2Fla-croix-rousse&psig=AOvVaw3yVIDeS7_ddRcTIIjxXnaJ&ust=1694013043718000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJif77_gk4EDFQAAAAAdAAAAABAE"
+    image_url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fnavaway.fr%2Fvisiter-lyon%2Fquartier-croix-rousse-lyon%2F&psig=AOvVaw1JESzInYIgv4RihepIp7uS&ust=1694032944265000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDGqtGqlIEDFQAAAAAdAAAAABAE"
     image_data = URI.open(image_url).read
     new_user_monument.photos.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
     new_user_monument.save

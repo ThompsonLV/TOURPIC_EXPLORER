@@ -43,7 +43,7 @@
   <div class="container" data-controller="tabs">
 
     <div class="menu-tab">
-        <div class="title-tab" data-action="click->tabs#toggle4" data-tabs-target="title4">Trophé</div>
+        <div class="title-tab" data-action="click->tabs#toggle4" data-tabs-target="title4">Trophée</div>
     </div>
     <div class="menu-tab">
       <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
@@ -69,13 +69,13 @@
 
   <div class="monuments-grid d-none" data-tabs-target="myMonuments">
     <% if @user.user_monuments.any? %>
-      <div class="monument-card">
-        <% @user.user_monuments.each do |monument| %>
+      <% @user.user_monuments.each do |monument| %>
+        <div class="monument-card">
           <% if monument.photos.attached? %>
             <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% else %>
       <h4></h4>
       <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
