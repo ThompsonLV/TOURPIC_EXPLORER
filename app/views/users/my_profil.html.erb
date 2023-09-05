@@ -55,7 +55,9 @@
     <% if @user.user_monuments.any? %>
       <div class="monument-card">
         <% @user.user_monuments.each do |monument| %>
-          <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
+          <% if monument.photos.attached? %>
+            <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
+          <% end %>
         <% end %>
       </div>
     <% else %>
