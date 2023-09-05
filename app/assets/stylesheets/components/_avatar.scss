@@ -17,6 +17,16 @@
   border: solid white 1px;
 }
 
+.avatar-rounded-profile {
+  transform: translate(-88%, 16%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: solid white 6px;
+  position: absolute;
+}
+
 .avatar-bordered {
   width: 40px;
   border-radius: 50%;

@@ -1,5 +1,3 @@
-
-
 #map {
   width: 100%;
   height: 100vh;
@@ -16,12 +14,9 @@
   opacity: 90%;
 }
 
-
-
 .map_style {
   margin: 10px;
 }
-
 
 .voir_btn {
   display: inline-block;
@@ -52,7 +47,7 @@
 
 .retour-brand {
   border-radius: 50px;
-  background: var(--couleur-1, #98BEFD);
+  background: var(--couleur-1, $blue);
   margin: 20px;
   padding: 10px;
   z-index: 999;
@@ -65,7 +60,7 @@
 
 .btn-control {
   font: bold 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  background-color: #3386c0;
+  background-color: $darkblue;
   color: #fff;
   position: absolute;
   top: 20px;
@@ -80,7 +75,7 @@
   border-radius: 3px;
 }
 .btn-control:hover {
-background-color: #4ea0da;
+background-color: $blue;
 }
 
 #map-overlay {
@@ -97,7 +92,6 @@ background-color: #4ea0da;
   height: 50px;
   border-radius: 3px;
 }
-
 
 #distance-itinerary {
   border-radius: 20px;
@@ -123,5 +117,4 @@ background-color: #4ea0da;
 
 .mapboxgl-user-location-accuracy-circle{
   display: none
-
 }
