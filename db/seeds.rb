@@ -97,7 +97,7 @@ p '------------------------'
 @charles = User.create!(email: "charles@gmail.com", first_name: "Charles", last_name: "DeMont", password: 'azerty', password_confirmation: 'azerty')
 @lazari = User.create!(email: "lazari@gmail.com", first_name: "Lazari", last_name: "Kacimi", password: 'azerty', password_confirmation: 'azerty')
 
-20.times do
+10.times do
   User.create!(
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
@@ -112,8 +112,9 @@ p '------------------------'
 
 users = User.all
 monuments = Monument.all
-
+a = 1
 users.each do |user|
+  p "User #{a}"
   random_monument = monuments.sample
   (1..10).to_a.sample.times do
     new_user_monument = UserMonument.create!(user: user, monument: random_monument, favoris: true)
@@ -123,6 +124,7 @@ users.each do |user|
     new_user_monument.photos.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
     new_user_monument.save
   end
+  a += 1
 end
 
 UserMonument.create!(user: @charles, monument: le_wagon, favoris: true)
