@@ -4,25 +4,6 @@
   gap: 12px;
 }
 
-.monument-card{
-position: relative;
-
-  a{
-    text-align: center;
-    font-size: 30px;
-    height: 40px;
-    width: 40px;
-    text-decoration: none;
-    position: absolute;
-    color:black;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-  }
-}
-
 .monument-card-picture{
   display: flex;
   border-radius: 12px;

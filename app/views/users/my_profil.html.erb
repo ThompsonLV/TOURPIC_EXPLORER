@@ -40,8 +40,9 @@
     <% if @user.user_monuments.any? %>
       <div class="monument-card">
         <% @user.user_monuments.each do |monument| %>
-          <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
-          <p><%= link_to "+", monument_path(monument.monument_id)%></p>
+          <%= link_to monument_path(monument.monument_id) do %>
+            <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+          <% end %>
         <% end %>
       </div>
     <% else %>
