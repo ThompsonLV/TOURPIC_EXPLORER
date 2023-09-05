@@ -79,6 +79,22 @@ Answer.create!(content: "Les frères Paillard", question: questions3, success: t
 Answer.create!(content: "Les jumeaux Gerdon", question: questions3, success: false)
 Answer.create!(content: "Les cousins Fernillon", question: questions3, success: false)
 
+maison = Monument.create!(
+  title: "Maison",
+  short_description: "Le Wagon : école coding bootcamp renommée pour des
+                    formations intensives en développement web et programmation.",
+  long_description: "Le Wagon est une école de codage ou 'coding bootcamp'
+                    qui propose des formations intensives en développement
+                    web et en programmation informatique. Cette école est
+                    présente dans de nombreuses villes à travers le monde
+                    et offre des programmes de formation destinés à enseigner
+                    les compétences en codage et en développement web en un laps
+                    de temps relativement court, généralement de 9 à 24 semaines,
+                    en fonction du programme choisi.",
+  points: 500,
+  address: "175 cours Lafayette, 69006 Lyon"
+)
+
 p "Création des comptes"
 p '------------------------'
 @thomas = User.create!(email: "thomas@gmail.com", first_name: "Thomas", last_name: "Leveo", password: 'azerty', password_confirmation: 'azerty')

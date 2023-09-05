@@ -36,11 +36,12 @@
             <%= image_tag "camera.svg" %>
           </button>
 
-          <video id="camera-feed" autoplay></video>
-          <img id="captured-image" style="display: none;">
-          <button id="capture-button" style="display: none;">Capture</button>
-        </div>
-      </div>
+
+      <video id="camera-feed" autoplay style="display: none;"></video>
+      <img id="captured-image" style="display: none;">
+      <button id="capture-button" style="display: none;">Capture</button>
+    </div>
+  </div>
 
       <h2 class= "titre_show"><%= @monument.title %></h2>
       <div class= "short_description">
