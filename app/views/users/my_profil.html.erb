@@ -54,13 +54,13 @@
 
     <div class="monuments-grid" data-tabs-target="unlockedMonuments">
       <% if @user.user_monuments.any? %>
-        <div class="monument-card">
-          <% @user.user_monuments.each do |monument| %>
+        <% @user.user_monuments.each do |monument| %>
+          <div class="monument-card">
             <%= link_to monument_path(monument.monument_id) do %>
               <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% else %>
         <h4></h4>
         <h4 class="text-center">Vous n'avez pas débloqué de monuments...</h4>
@@ -81,15 +81,16 @@
       <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
     <% end %>
   </div>
+
     <div class="user-cards-all d-none" data-tabs-target="classement">
-      <% 8.times.each_with_index do |index| %>
+      <% @users.each_with_index do |user, index| %>
         <div class="users-card">
           <div class="rank"><%= index + 1 %></div>
           <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
           <div class="users-card-infos">
             <div class="users-name-pourcent">
-              <p class="name"><%= ["Pierre", "Jean", "Edouard", "Clémence", "Marie", "Justine"].sample %></p>
-              <p><%= 100 - (index + 4) %>%</p>
+              <p class="name"><%= user.first_name %></p>
+              <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
             </div>
             <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
           </div>
