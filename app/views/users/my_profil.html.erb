@@ -39,8 +39,8 @@
   <div class="monuments-grid" data-tabs-target="unlockedMonuments">
     <div class="monument-card">
       <% @user.user_monuments.each do |monument| %>
-      <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
-      <p><%= link_to "+", monument_path(monument.monument_id)%></p>
+        <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+        <p><%= link_to "+", monument_path(monument.monument_id)%></p>
       <% end %>
     </div>
   </div>
