@@ -13,18 +13,34 @@
   border-radius: 50%;
 }
 
-#camera-feed, #captured-image{
-  width: 100%;
+#camera-feed {
+  width: 95%;
+  left: 0px;
+  top: 12px;
+  border-radius: 12px;
+  border: solid 2px black;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#captured-image {
+  width: 95%;
   position: absolute;
   left: 0px;
-  top: 0px;
+  top: 12px;
+  border-radius: 12px;
+  border: solid 2px black;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #capture-button {
   position: absolute;
   left: 147px;
   top: 630px;
-  border: solid 6px #3c85fb;
+  border: solid 4px black;
   background-color: rgba(255, 255, 255, 0.9);
   height: 100px;
   width: 100px;

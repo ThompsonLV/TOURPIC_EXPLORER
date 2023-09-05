@@ -1,12 +1,12 @@
 <% if @unlocked_monument %>
     <% if @monument.photo.attached? %>
-      <%= cl_image_tag(@monument.photo.key, class: "monument_photo") %>
-    <% else %>
-      <%= image_tag "canuts.jpeg", class: "monument_photo" %>
+    <%= cl_image_tag(@monument.photo.key, class: "monument_photo") %>
+     <% else %>
+      <%= image_tag "img_monument.png", class: "monument_photo" %>
   <% end %>
     <div class= "long_description">
-      <p><%= @monument.long_description%></p>
-    </div>
+       <p><%= @monument.long_description%></p>
+     </div>
     <div class= "quizz">
       <%= link_to "Gagnez plus de point avec un quizz !", monument_questions_path(@monument), class: "quizz_btn" %>
     </div>
@@ -15,7 +15,7 @@
   <% if @monument.photo.attached? %>
     <%= cl_image_tag(@monument.photo.key, class: "photo_show") %>
     <% else %>
-      <%= image_tag "canuts.jpeg", class: "photo_show" %>
+      <%= image_tag "img_monument.png", class: "photo_show" %>
   <% end %>
   <div class= "info_type">
     <p class= "info">19 flasheurs</p>
@@ -35,7 +35,7 @@
         <%= image_tag "camera.svg" %>
       </button>
 
-      <video id="camera-feed" autoplay></video>
+      <video id="camera-feed" autoplay style="display: none;"></video>
       <img id="captured-image" style="display: none;">
       <button id="capture-button" style="display: none;">Capture</button>
     </div>

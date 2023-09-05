@@ -23,6 +23,8 @@ export default class extends Controller {
 
   async openCamera() {
     this.captureButton.style.display = "block";
+    this.cameraFeed.style.display = "block";
+    this.cameraButton.style.display = "none";
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
       this.cameraFeed.srcObject = stream;
@@ -40,7 +42,7 @@ export default class extends Controller {
     context.drawImage(this.cameraFeed, 0, 0, canvas.width, canvas.height);
 
     this.capturedImage.src = canvas.toDataURL("image/png");
-    this.capturedImage.style.display = "block";
+    // this.capturedImage.style.display = "block";
 
     fetch(this.capturedImage.src)
     .then(response => response.blob())
@@ -56,13 +58,10 @@ export default class extends Controller {
           Accept: 'application/json',
         },
       })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         this.stopCameraStream();
       });
     })
-
   }
 
     async stopCameraStream() {
