@@ -32,26 +32,13 @@
     <div class="card-back">
       <h4 class="number-e"><%= @user.user_monuments.count %></h4>
       <p class="title-trophy">Flash</p>
-
     </div>
-    <img class="avatar-large" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-  </div>
-  <div class="container">
-    <div class="classement">
-      <div class="card-back">
-        <h4 class="number-e">+1000</h4>
-        <p class="title-trophy">Classement</p>
-      </div>
-      <div class="card-back">
-        <h4 class="number-e"><%= @user.user_monuments.count %></h4>
-        <p class="title-trophy">Flash</p>
-      </div>
-      <div class="card-back">
-        <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
-        <p class="title-trophy">Manquants </p>
-      </div>
+    <div class="card-back">
+      <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
+      <p class="title-trophy">Manquants </p>
     </div>
   </div>
+</div>
 
   <div class="container" data-controller="tabs">
 
