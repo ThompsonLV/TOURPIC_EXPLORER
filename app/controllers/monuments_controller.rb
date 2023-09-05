@@ -11,7 +11,6 @@ class MonumentsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {monument: monument}),
         marker_html: render_to_string(partial: "marker")
       }
-
     end
   end
 

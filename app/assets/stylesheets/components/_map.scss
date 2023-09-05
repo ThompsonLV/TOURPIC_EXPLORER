@@ -1,5 +1,3 @@
-
-
 #map {
   width: 100%;
   height: 100vh;
@@ -16,12 +14,9 @@
   opacity: 90%;
 }
 
-
-
 .map_style {
   margin: 10px;
 }
-
 
 .voir_btn {
   display: inline-block;
@@ -96,6 +91,28 @@ background-color: $blue;
   width: 200px;
   height: 50px;
   border-radius: 3px;
+}
+
+#distance-itinerary {
+  border-radius: 20px;
+  background-color: gray;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  color: white;
+  padding: 0.5em;
+  display: none;
+}
+
+#time-itinerary {
+  border-radius: 20px;
+  background-color: gray;
+  position: fixed;
+  top: 4em;
+  right: 1em;
+  color: white;
+  padding: 0.5em;
+  display: none;
 }
 
 .mapboxgl-user-location-accuracy-circle{

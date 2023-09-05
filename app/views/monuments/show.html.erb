@@ -1,39 +1,41 @@
-<% if @unlocked_monument %>
+<div class="content">
+  <% if @unlocked_monument %>
+      <% if @monument.photo.attached? %>
+      <%= cl_image_tag(@monument.photo.key, class: "monument_photo") %>
+      <% else %>
+        <%= image_tag "img_monument.png", class: "monument_photo" %>
+    <% end %>
+      <div class= "long_description">
+        <p><%= @monument.long_description%></p>
+      </div>
+      <div class= "quizz">
+        <%= link_to "Gagnez plus de point avec un quizz !", monument_questions_path(@monument), class: "quizz_btn" %>
+      </div>
+  <% else %>
+
     <% if @monument.photo.attached? %>
-    <%= cl_image_tag(@monument.photo.key, class: "monument_photo") %>
-     <% else %>
-      <%= image_tag "img_monument.png", class: "monument_photo" %>
-  <% end %>
-    <div class= "long_description">
-       <p><%= @monument.long_description%></p>
-     </div>
-    <div class= "quizz">
-      <%= link_to "Gagnez plus de point avec un quizz !", monument_questions_path(@monument), class: "quizz_btn" %>
+      <%= cl_image_tag(@monument.photo.key, class: "photo_show") %>
+      <% else %>
+        <%= image_tag "img_monument.png", class: "photo_show" %>
+    <% end %>
+    <div class= "info_type">
+      <p class= "info">19 flasheurs</p>
+      <div class="separator"></div>
+      <p class= "info">+400pt</p>
+      <div class="separator"></div>
+      <p class= "info"><%= @monument.distance_from([45.769436, 4.8348738]).round(2) %> km</p>
     </div>
-<% else %>
-
-  <% if @monument.photo.attached? %>
-    <%= cl_image_tag(@monument.photo.key, class: "photo_show") %>
-    <% else %>
-      <%= image_tag "img_monument.png", class: "photo_show" %>
-  <% end %>
-  <div class= "info_type">
-    <p class= "info">19 flasheurs</p>
-    <div class="separator"></div>
-    <p class= "info">+400pt</p>
-    <div class="separator"></div>
-    <p class= "info"><%= @monument.distance_from([45.769436, 4.8348738]).round(2) %> km</p>
-  </div>
 
 
-  <div class="camera-container"
-      data-controller="photos"
-      data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude] %>"
-      data-photos-monument-id-value="<%= @monument.id %>">
-    <div class="cam d-none" data-photos-target="camera">
-      <button id="camera-button">
-        <%= image_tag "camera.svg" %>
-      </button>
+      <div class="camera-container"
+          data-controller="photos"
+          data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude] %>"
+          data-photos-monument-id-value="<%= @monument.id %>">
+        <div class="cam d-none" data-photos-target="camera">
+          <button id="camera-button">
+            <%= image_tag "camera.svg" %>
+          </button>
+
 
       <video id="camera-feed" autoplay style="display: none;"></video>
       <img id="captured-image" style="display: none;">
@@ -41,48 +43,48 @@
     </div>
   </div>
 
-  <h2 class= "titre_show"><%= @monument.title %></h2>
-  <div class= "short_description">
-    <%= @monument.short_description %>
+      <h2 class= "titre_show"><%= @monument.title %></h2>
+      <div class= "short_description">
+        <%= @monument.short_description %>
 
-    <%= link_to map_monument_path, class: "img_gps" do %>
-      <%= image_tag "map.svg", class: "img_gps" %>
-      <p class= "go">Let's go!</p>
-    <% end %>
-  </div>
-
-  <% @nearest_monuments.each do |nearest_monument| %>
-    <% markers = [
-        {
-          lat: nearest_monument.latitude,
-          lng: nearest_monument.longitude,
-        }
-      ]
-    %>
-    <%= link_to monument_path(nearest_monument), class: "no-decoration" do %>
-      <div class= "map_chemin">
-        <div id="map_show"
-            data-controller="map"
-            data-map-markers-value="<%= markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-            style="pointer-events:none">
-        </div>
-        <div class="info-container">
-          <div class= "chemin">
-            <h2>Sur votre chemin</h2>
-            <%= nearest_monument.short_description.truncate(30) %>
-          </div>
-          <div class= "bulle_container">
-            <div class= "bulle d-flex align-items-center justify-content-center">
-              <div><%= image_tag "map_market.svg", class: "img_bulle" %><%= nearest_monument.distance_from([45.769436, 4.8348738]).round(2) %> km</div>
-            </div>
-            <div class= "bulle d-flex align-items-center justify-content-center">
-              <div><%= image_tag "profil_market.svg", class: "img_bulle" %> 14 flashs</div>
-            </div>
-          </div>
-        </div>
+        <%= link_to map_monument_path, class: "img_gps" do %>
+          <%= image_tag "map.svg", class: "img_gps" %>
+          <p class= "go">Let's go!</p>
+        <% end %>
       </div>
-    <% end %>
-  <% end %>
 
-<% end %>
+      <% @nearest_monuments.each do |nearest_monument| %>
+        <% markers = [
+            {
+              lat: nearest_monument.latitude,
+              lng: nearest_monument.longitude,
+            }
+          ]
+        %>
+        <%= link_to monument_path(nearest_monument), class: "no-decoration" do %>
+          <div class= "map_chemin">
+            <div id="map_show"
+                data-controller="map"
+                data-map-markers-value="<%= markers.to_json %>"
+                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+                style="pointer-events:none">
+            </div>
+            <div class="info-container">
+              <div class= "chemin">
+                <h2 class= "titre_chemin">Sur votre chemin</h2>
+                <%= nearest_monument.short_description.truncate(30)%>
+              </div>
+              <div class= "bulle_container">
+                <div class= "bulle d-flex align-items-center justify-content-center">
+                  <div><%= image_tag "map_market.svg", class: "img_bulle" %><%= nearest_monument.distance_from([45.769436, 4.8348738]).round(2) %> km</div>
+                </div>
+                <div class= "bulle d-flex align-items-center justify-content-center">
+                  <div><%= image_tag "profil_market.svg", class: "img_bulle" %> 14 flashs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  <% end %>
+</div>

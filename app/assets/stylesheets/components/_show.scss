@@ -80,6 +80,10 @@
   text-align: center;
   width: 12vh;
   height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .bulle_container {
@@ -87,7 +91,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .photo_show {
@@ -133,4 +137,51 @@ filter: blur(6px);
   height: auto;
   width: auto;
   padding-right: 10px;
+  margin-left: 5px;
+  margin-bottom: 4px;
+}
+
+
+
+
+  @media screen and (max-width: 390px) {
+    #map_show {
+      width: 130px;
+      height: 100%;
+    }
+
+    .info-container {
+      padding: 10px;
+    }
+
+    .titre_chemin {
+      font-size: 18px !important;
+      font-weight: bold;
+    }
+
+    .chemin {
+      text-size-adjust: 16px;
+    }
+
+
+
+    .bulle {
+      margin-top: 15px;
+      width: 16vh;
+      height: 25px;
+    }
+
+    .titre_show {
+      margin-top: 5px;
+    }
+    .info_type {
+
+      position: absolute;
+      top: 32%;
+      left: 30px;
+      right: 30px;
+  }
+  .content {
+    padding-bottom: 80px;
+  }
 }
