@@ -35,6 +35,10 @@
   height: 125px;
   margin: 20px;
   display: flex;
+
+  .mapboxgl-ctrl-geolocate {
+    display: none;
+  }
 }
 
 .no-decoration {
