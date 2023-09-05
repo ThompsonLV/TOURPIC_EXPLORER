@@ -48,7 +48,7 @@
     <div class="menu-tab">
       <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
       <div class="title-tab border-tabs" data-action="click->tabs#toggle2" data-tabs-target="title2">Mes photos</div>
-      <div class="title-tab" data-action="click->tabs#toggle3" data-tabs-target="title3">Classement</div>
+      <div class="title-tab " data-action="click->tabs#toggle3" data-tabs-target="title3">Classement</div>
     </div>
 
 
@@ -67,18 +67,20 @@
       <% end %>
     </div>
 
-    <div class="monuments-grid d-none" data-tabs-target="myMonuments">
-      <% if @user.user_monuments.any? %>
+  <div class="monuments-grid d-none" data-tabs-target="myMonuments">
+    <% if @user.user_monuments.any? %>
+      <div class="monument-card">
         <% @user.user_monuments.each do |monument| %>
-          <div class="monument-card">
+          <% if monument.photos.attached? %>
             <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
-          </div>
+          <% end %>
         <% end %>
-      <% else %>
-        <h4></h4>
-        <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+      <h4></h4>
+      <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
+    <% end %>
+  </div>
 
     <div class="user-cards-all d-none" data-tabs-target="classement">
       <% @users.each_with_index do |user, index| %>
@@ -99,9 +101,11 @@
 
 
   <div class="puzzle d-none" data-tabs-target="puzzle">
-    <h1>Explorez et découvrez tous les monuments pour débloquer un puzzle</h1>
-    <p>Amusez-vous à résoudre le mystère qui se cache derrière.</p>
+    <h1 class= "titre_show">Explorez et découvrez tous les monuments pour débloquer une surprise.</h1>
 
+<% if @user = @unlocked_monument  %>
+
+<% end %>
         <div class="puzzle-board">
             <!-- Les pièces du puzzle -->
             <div class="puzzle-piece"></div>

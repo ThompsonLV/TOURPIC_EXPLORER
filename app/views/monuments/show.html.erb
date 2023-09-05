@@ -26,7 +26,6 @@
       <p class= "info"><%= @monument.distance_from([45.769436, 4.8348738]).round(2) %> km</p>
     </div>
 
-
       <div class="camera-container"
           data-controller="photos"
           data-photos-coordinates-value="<%=[@monument.latitude, @monument.longitude] %>"
@@ -47,11 +46,14 @@
       <div class= "short_description">
         <%= @monument.short_description %>
 
-        <%= link_to map_monument_path, class: "img_gps" do %>
-          <%= image_tag "map.svg", class: "img_gps" %>
-          <p class= "go">Let's go!</p>
-        <% end %>
+        <div class="btn_gps">
+          <%= link_to map_monument_path, class: "img_gps" do %>
+            <%= image_tag "map.svg", class: "img_gps" %>
+            <p class= "go">Let's go!</p>
+          <% end %>
+        </div>
       </div>
+          <h2 class="titre_show">A proximité</h2>
 
       <% @nearest_monuments.each do |nearest_monument| %>
         <% markers = [
@@ -71,8 +73,8 @@
             </div>
             <div class="info-container">
               <div class= "chemin">
-                <h2 class= "titre_chemin">Sur votre chemin</h2>
-                <%= nearest_monument.short_description.truncate(30)%>
+                <%# <%= nearest_monument.short_description.truncate(30)%>
+                <%= nearest_monument.title %>
               </div>
               <div class= "bulle_container">
                 <div class= "bulle d-flex align-items-center justify-content-center">
