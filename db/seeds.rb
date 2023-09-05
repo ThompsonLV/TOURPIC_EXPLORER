@@ -91,17 +91,6 @@ Monument.create!(
   address: "175 cours Lafayette, 69006 Lyon"
 )
 
-Monument.create!(
-  title: "Maison Julie",
-  short_description: "Le Wagon : école coding bootcamp renommée pour des
-                    formations intensives en développement web et programmation.",
-  long_description: "Le Wagon est une école de codage ou 'coding bootcamp'
-                    qui propose des formations intensives en développement
-                    web et en programmation informatique.",
-  points: 500,
-  address: "11 Rue de Chartres, 92320 Châtillon"
-)
-
 p "Création des comptes"
 p '------------------------'
 @thomas = User.create!(email: "thomas@gmail.com", first_name: "Thomas", last_name: "Leveo", password: 'azerty', password_confirmation: 'azerty')
