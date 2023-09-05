@@ -1,5 +1,6 @@
 require "json"
 require "open-uri"
+require 'faker'
 
 p '------------------------'
 p 'Destruction des données'
@@ -19,7 +20,7 @@ i = 1
 monuments['values'].first(100).each do |monument|
   if monument['type'] == 'PATRIMOINE_CULTUREL' && monument['illustrations'] != nil # && monument['address']['streetAddress'] && !monument["address"]["streetAddress"].start_with?("entre")
     p "Monument #{i}"
-    new_monument = Monument.create!(
+    new_monument = Monument.new(
       title: monument['nom'],
       short_description: monument['descrcourtfr'],
       long_description: monument['descrdetailfr'],
@@ -79,18 +80,13 @@ Answer.create!(content: "Les frères Paillard", question: questions3, success: t
 Answer.create!(content: "Les jumeaux Gerdon", question: questions3, success: false)
 Answer.create!(content: "Les cousins Fernillon", question: questions3, success: false)
 
-maison = Monument.create!(
-  title: "Maison",
+Monument.create!(
+  title: "Maison Thomas",
   short_description: "Le Wagon : école coding bootcamp renommée pour des
                     formations intensives en développement web et programmation.",
   long_description: "Le Wagon est une école de codage ou 'coding bootcamp'
                     qui propose des formations intensives en développement
-                    web et en programmation informatique. Cette école est
-                    présente dans de nombreuses villes à travers le monde
-                    et offre des programmes de formation destinés à enseigner
-                    les compétences en codage et en développement web en un laps
-                    de temps relativement court, généralement de 9 à 24 semaines,
-                    en fonction du programme choisi.",
+                    web et en programmation informatique.",
   points: 500,
   address: "175 cours Lafayette, 69006 Lyon"
 )
@@ -99,11 +95,37 @@ p "Création des comptes"
 p '------------------------'
 @thomas = User.create!(email: "thomas@gmail.com", first_name: "Thomas", last_name: "Leveo", password: 'azerty', password_confirmation: 'azerty')
 @charles = User.create!(email: "charles@gmail.com", first_name: "Charles", last_name: "DeMont", password: 'azerty', password_confirmation: 'azerty')
-@lazari = User.create!(email: "lazari@gmail.com", first_name: "lazari", last_name: "Kacimi", password: 'azerty', password_confirmation: 'azerty')
+@lazari = User.create!(email: "lazari@gmail.com", first_name: "Lazari", last_name: "Kacimi", password: 'azerty', password_confirmation: 'azerty')
 
-p "Création des favoris"
+20.times do
+  User.create!(
+    email: Faker::Internet.email,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    password: 'azerty',
+    password_confirmation: 'azerty'
+  )
+end
+
+p "Création des UserMonument "
 p '------------------------'
-UserMonument.create!(user: @charles,monument: le_wagon, favoris: true)
+
+users = User.all
+monuments = Monument.all
+
+users.each do |user|
+  random_monument = monuments.sample
+  (1..10).to_a.sample.times do
+    new_user_monument = UserMonument.create!(user: user, monument: random_monument, favoris: true)
+
+    image_url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.visiterlyon.com%2Fdecouvrir%2Fsites-et-monuments%2Fsites-et-monuments-remarquables%2Fla-croix-rousse&psig=AOvVaw3yVIDeS7_ddRcTIIjxXnaJ&ust=1694013043718000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJif77_gk4EDFQAAAAAdAAAAABAE"
+    image_data = URI.open(image_url).read
+    new_user_monument.photos.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
+    new_user_monument.save
+  end
+end
+
+UserMonument.create!(user: @charles, monument: le_wagon, favoris: true)
 UserMonument.create!(user: @lazari, monument: le_wagon, favoris: true)
 
 p "Terminé"
