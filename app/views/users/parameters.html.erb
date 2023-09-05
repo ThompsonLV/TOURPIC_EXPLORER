@@ -1,16 +1,23 @@
-<div data-controller="toggle">
-  <div class="profil-card">
-    <div class="performance">
-      <h2 class="name"><%= @user.first_name %></h1>
-      <h4>Mon score</h4>
-        <p class="number"><%= current_user.score %></p>
-      <h4>Bibliothèque</h4>
-        <p class="number"><%= @user.user_monuments.count %></p>
-      <h4>Followers</h4>
-        <p class="number">0</p>
+<div class="linear-background-profile">
+  <img class="avatar-rounded-profile" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+  <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+</div>
+<div class="container-user-infos">
+  <div class="user-infos">
+    <div class="user-info-profile">
+      <h4><%= current_user.score %></h4>
+      <p>Points</p>
     </div>
-    <img class="avatar-large" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+    <div class="user-info-profile">
+      <h4><%= @user.user_monuments.count %></h4>
+      <p>Monuments débloqués</p>
+    </div>
+    <div class="user-info-profile">
+      <h4>0</h4>
+      <p>Followers</p>
+    </div>
   </div>
+</div>
 
 
 <div class="container">
