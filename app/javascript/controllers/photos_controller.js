@@ -56,13 +56,10 @@ export default class extends Controller {
           Accept: 'application/json',
         },
       })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         this.stopCameraStream();
       });
     })
-
   }
 
     async stopCameraStream() {
