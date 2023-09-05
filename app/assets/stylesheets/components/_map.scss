@@ -98,6 +98,29 @@ background-color: #4ea0da;
   border-radius: 3px;
 }
 
+
+#distance-itinerary {
+  border-radius: 20px;
+  background-color: gray;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  color: white;
+  padding: 0.5em;
+  display: none;
+}
+
+#time-itinerary {
+  border-radius: 20px;
+  background-color: gray;
+  position: fixed;
+  top: 4em;
+  right: 1em;
+  color: white;
+  padding: 0.5em;
+  display: none;
+  
 .mapboxgl-user-location-accuracy-circle{
   display: none
+
 }
