@@ -1,5 +1,3 @@
-
-
 #map {
   width: 100%;
   height: 100vh;
@@ -16,12 +14,9 @@
   opacity: 90%;
 }
 
-
-
 .map_style {
   margin: 10px;
 }
-
 
 .voir_btn {
   display: inline-block;
@@ -98,7 +93,6 @@ background-color: #4ea0da;
   border-radius: 3px;
 }
 
-
 #distance-itinerary {
   border-radius: 20px;
   background-color: gray;
@@ -119,8 +113,8 @@ background-color: #4ea0da;
   color: white;
   padding: 0.5em;
   display: none;
-  
+}
+
 .mapboxgl-user-location-accuracy-circle{
   display: none
-
 }
