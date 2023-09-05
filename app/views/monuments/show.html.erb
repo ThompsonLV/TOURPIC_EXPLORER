@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content_show">
   <% if @unlocked_monument %>
       <% if @monument.photo.attached? %>
       <%= cl_image_tag(@monument.photo.key, class: "monument_photo") %>
@@ -76,7 +76,7 @@
               </div>
               <div class= "bulle_container">
                 <div class= "bulle d-flex align-items-center justify-content-center">
-                  <div><%= image_tag "map_market.svg", class: "img_bulle" %><%= nearest_monument.distance_from([45.769436, 4.8348738]).round(2) %> km</div>
+                  <div><%= image_tag "map_market.svg", class: "img_bulle" %><%= nearest_monument.distance_from([@monument.latitude, @monument.longitude]).round(2) %> km</div>
                 </div>
                 <div class= "bulle d-flex align-items-center justify-content-center">
                   <div><%= image_tag "profil_market.svg", class: "img_bulle" %> 14 flashs</div>
