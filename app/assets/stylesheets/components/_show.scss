@@ -12,7 +12,7 @@
 
 .short_description {
   border-radius: 5px;
-  background: var(--c-4, #FAE6B1);
+  background: var(--c-4, $lightyellow);
   height: auto;
   margin: 20px;
   padding: 10px;
@@ -22,7 +22,7 @@
 
 .long_description {
   border-radius: 5px;
-  background: var(--c-4, #FAE6B1);
+  background: var(--c-4, $lightyellow);
   height: auto;
   margin: 20px;
   padding: 10px;
@@ -31,7 +31,7 @@
 
 .map_chemin {
   border-radius: 5px;
-  background: var(--couleur-1, #98BEFD);
+  background: var(--couleur-1, $blue);
   height: 125px;
   margin: 20px;
   display: flex;
@@ -104,7 +104,7 @@ filter: blur(6px);
 
 .info_type {
   border-radius: 15px;
-  background: var(--couleur-1, #98BEFD);
+  background: var(--couleur-1, $blue);
   position: absolute;
   top: 26%;
   left: 30px;
