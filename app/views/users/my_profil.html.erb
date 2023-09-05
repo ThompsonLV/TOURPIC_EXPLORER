@@ -37,20 +37,30 @@
   </div>
 
   <div class="monuments-grid" data-tabs-target="unlockedMonuments">
-    <div class="monument-card">
-      <% @user.user_monuments.each do |monument| %>
-        <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
-        <p><%= link_to "+", monument_path(monument.monument_id)%></p>
-      <% end %>
-    </div>
+    <% if @user.user_monuments.any? %>
+      <div class="monument-card">
+        <% @user.user_monuments.each do |monument| %>
+          <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+          <p><%= link_to "+", monument_path(monument.monument_id)%></p>
+        <% end %>
+      </div>
+    <% else %>
+      <h4></h4>
+      <h4 class="text-center">Vous n'avez pas débloqué de monuments...</h4>
+    <% end %>
   </div>
 
   <div class="monuments-grid d-none" data-tabs-target="myMonuments">
-    <div class="monument-card">
-      <% @user.user_monuments.each do |monument| %>
-        <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
-      <% end %>
-    </div>
+    <% if @user.user_monuments.any? %>
+      <div class="monument-card">
+        <% @user.user_monuments.each do |monument| %>
+          <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
+        <% end %>
+      </div>
+    <% else %>
+      <h4></h4>
+      <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
+    <% end %>
   </div>
 
   <div class="user-cards-all d-none" data-tabs-target="classement">
