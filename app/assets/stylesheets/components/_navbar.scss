@@ -41,3 +41,11 @@
   height: 28px;
   width: 28px;
 }
+
+
+@media screen and (max-width: 390px) {
+  .navbar_container {
+    height: 60px;
+    padding: 5px;
+  }
+}

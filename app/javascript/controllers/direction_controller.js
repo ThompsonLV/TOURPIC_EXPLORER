@@ -7,6 +7,7 @@ export default class extends Controller {
     end: Array,
   }
 
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
     const end = this.endValue
@@ -24,7 +25,6 @@ export default class extends Controller {
         center: start,
         zoom: 10
       })
-
       async function getRoute(end) {
         const url = `https://api.mapbox.com/directions/v5/mapbox/walking/${start[0]}%2C${start[1]}%3B${end[0]}%2C${end[1]}?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=full&steps=true&access_token=pk.eyJ1IjoiY2hhcmxlc2RtIiwiYSI6ImNsa3RxdmQ4ZDBkZTQzZHBwdmhsd3d1bzcifQ.v8xgyQaTJA9sW6y7NMcM4w`
         const query = await fetch(url, { method: 'GET' })
@@ -90,11 +90,20 @@ export default class extends Controller {
             'circle-color': '#3887be' // Couleur rouge
           }
         })
+
+        const distanceItinerary = document.getElementById("distance-itinerary");
+        distanceItinerary.innerText = `${(data.distance / 1000).toFixed(2)} km`;
+        distanceItinerary.style.display = "block";
+
+        const timeItinerary = document.getElementById("time-itinerary");
+        timeItinerary.innerText = `${(data.duration / 60).toFixed(1)} minutes`;
+        timeItinerary.style.display = "block";
+        console.log(timeItinerary);
       }
 
       map.on('load', () => {
         // Faites une demande initiale d'itinéraire au chargement de la carte
-        getRoute(end)
+        getRoute(end);
 
         // Ajoutez le point de départ à la carte
         map.addLayer({
