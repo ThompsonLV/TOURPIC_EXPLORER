@@ -1,26 +1,3 @@
-.profil-card{
-  border-radius: 0 0 16px 16px;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  margin-bottom: 20px;
-  background-image: asset_url('image_4.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.2);
-
-  h4{
-    margin-bottom: 4px;
-    color: white;
-  }
-
-  p {
-    margin-bottom: 8px;
-    color: white;
-  }
-}
-
 .name{
   align-items: center;
   font-weight: bold;
@@ -36,21 +13,23 @@
   h4 {
     font-family: 'inter';
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
   }
 
 }
 
 .card-back {
-  height: fit-content;
   display: flex;
   align-items: center;
   padding: 12px 6px 12px 6px;
   flex-direction: column;
-  border-radius: 20px;
+  border-radius: 50%;
   background: var(--couleur-2, #C1F1E0);
-  box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+  height: 92px;
+  box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.1);
+  width: 92px;
+  justify-content: center;
 
 }
 
@@ -64,14 +43,60 @@
   margin-bottom: 0;
 }
 
-.fixed{
-  position:fixed
-}
-
 .my-photo-card-picture{
   display: flex;
   border-radius: 12px;
   width: 100%;
   height: 200px;
   object-fit: cover;
+}
+
+.linear-background-profile{
+  background: linear-gradient(180deg, $blue 30%, $cyan 90%);
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  h4{
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    top: 85px;
+    left: 152px;
+  }
+}
+
+.user-infos{
+  display: flex;
+}
+
+.user-info-profile{
+  flex: 1;
+  text-align: center;
+  margin-right: 16px;
+
+  h4{
+    font-weight: bold;
+    font-size: 32px;
+    color:$blue
+    }
+
+  p{
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+}
+
+.user-info-profile:last-child {
+  margin-right: 0;
+}
+
+.container-user-infos {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  padding: 68px 20px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }

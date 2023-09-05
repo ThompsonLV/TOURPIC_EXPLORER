@@ -1,6 +1,6 @@
 
 .page_sign {
-  background: linear-gradient(180deg, #9EC6F8 34.38%, #C1F1E0 92.19%);
+  background: linear-gradient(180deg, $blue 34.38%, $cyan 92.19%);
   height: 100vh;
 }
 
@@ -10,7 +10,7 @@
   flex-shrink: 0;
   // style
   border-radius: 4px;
-  background: var(--couleur-1, #98BEFD);
+  background: var(--couleur-1, $blue);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
   display: flex;
   justify-content: center;
@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.logo {
+.logo-signin {
   border-radius: 1000px;
   background: url(<path-to-image>), lightgray 50% / cover no-repeat;
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.22);
@@ -48,7 +48,7 @@
 .email_case {
   border-radius: 4px;
 border: 1px solid #FFF;
-background: var(--couleur-1, #98BEFD);
+background: var(--couleur-1, $blue);
 }
 
 .signup_btn {
