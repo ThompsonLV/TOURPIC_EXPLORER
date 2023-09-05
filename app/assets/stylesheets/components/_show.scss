@@ -6,7 +6,7 @@
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  margin-top: 12px;
+  margin: 20px;
   text-align: center;
 }
 
@@ -163,25 +163,20 @@ filter: blur(6px);
       text-size-adjust: 16px;
     }
 
-
-
     .bulle {
       margin-top: 15px;
       width: 16vh;
       height: 25px;
     }
 
-    .titre_show {
-      margin-top: 5px;
-    }
     .info_type {
 
       position: absolute;
       top: 32%;
       left: 30px;
       right: 30px;
-  }
-  .content {
-    padding-bottom: 80px;
-  }
+    }
+    .content_show {
+      padding-bottom: 80px;
+    }
 }

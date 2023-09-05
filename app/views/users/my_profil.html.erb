@@ -1,4 +1,7 @@
 
+<div class="content_show">
+
+
 <div class="linear-background-profile">
   <img class="avatar-rounded-profile" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
   <h4><%= @user.first_name %> <%= @user.last_name %></h4>
@@ -29,63 +32,100 @@
     <div class="card-back">
       <h4 class="number-e"><%= @user.user_monuments.count %></h4>
       <p class="title-trophy">Flash</p>
+
     </div>
-    <div class="card-back">
-      <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
-      <p class="title-trophy">Manquants </p>
+    <img class="avatar-large" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+  </div>
+  <div class="container">
+    <div class="classement">
+      <div class="card-back">
+        <h4 class="number-e">+1000</h4>
+        <p class="title-trophy">Classement</p>
+      </div>
+      <div class="card-back">
+        <h4 class="number-e"><%= @user.user_monuments.count %></h4>
+        <p class="title-trophy">Flash</p>
+      </div>
+      <div class="card-back">
+        <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
+        <p class="title-trophy">Manquants </p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container" data-controller="tabs">
+  <div class="container" data-controller="tabs">
 
-  <div class="menu-tab">
-    <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
-    <div class="title-tab border-tabs" data-action="click->tabs#toggle2" data-tabs-target="title2">Mes photos</div>
-    <div class="title-tab" data-action="click->tabs#toggle3" data-tabs-target="title3">Classement</div>
-  </div>
+    <div class="menu-tab">
+        <div class="title-tab" data-action="click->tabs#toggle4" data-tabs-target="title4">Trophé</div>
+    </div>
+    <div class="menu-tab">
+      <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
+      <div class="title-tab border-tabs" data-action="click->tabs#toggle2" data-tabs-target="title2">Mes photos</div>
+      <div class="title-tab" data-action="click->tabs#toggle3" data-tabs-target="title3">Classement</div>
+    </div>
 
-  <div class="monuments-grid" data-tabs-target="unlockedMonuments">
-    <% if @user.user_monuments.any? %>
-      <div class="monument-card">
-        <% @user.user_monuments.each do |monument| %>
-          <%= link_to monument_path(monument.monument_id) do %>
-            <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+
+    <div class="monuments-grid" data-tabs-target="unlockedMonuments">
+      <% if @user.user_monuments.any? %>
+        <div class="monument-card">
+          <% @user.user_monuments.each do |monument| %>
+            <%= link_to monument_path(monument.monument_id) do %>
+              <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    <% else %>
-      <h4></h4>
-      <h4 class="text-center">Vous n'avez pas débloqué de monuments...</h4>
-    <% end %>
-  </div>
-
-  <div class="monuments-grid d-none" data-tabs-target="myMonuments">
-    <% if @user.user_monuments.any? %>
-      <div class="monument-card">
-        <% @user.user_monuments.each do |monument| %>
-          <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
-        <% end %>
-      </div>
-    <% else %>
-      <h4></h4>
-      <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
-    <% end %>
-  </div>
-
-  <div class="user-cards-all d-none" data-tabs-target="classement">
-    <% 8.times.each_with_index do |index| %>
-      <div class="users-card">
-        <div class="rank"><%= index + 1 %></div>
-        <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-        <div class="users-card-infos">
-          <div class="users-name-pourcent">
-            <p class="name"><%= ["Pierre", "Jean", "Edouard", "Clémence", "Marie", "Justine"].sample %></p>
-            <p><%= 100 - (index + 4) %>%</p>
-          </div>
-          <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
         </div>
-      </div>
-    <% end %>
+      <% else %>
+        <h4></h4>
+        <h4 class="text-center">Vous n'avez pas débloqué de monuments...</h4>
+      <% end %>
+    </div>
+
+    <div class="monuments-grid d-none" data-tabs-target="myMonuments">
+      <% if @user.user_monuments.any? %>
+        <div class="monument-card">
+          <% @user.user_monuments.each do |monument| %>
+            <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
+          <% end %>
+        </div>
+      <% else %>
+        <h4></h4>
+        <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
+      <% end %>
+    </div>
+
+    <div class="user-cards-all d-none" data-tabs-target="classement">
+      <% 8.times.each_with_index do |index| %>
+        <div class="users-card">
+          <div class="rank"><%= index + 1 %></div>
+          <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+          <div class="users-card-infos">
+            <div class="users-name-pourcent">
+              <p class="name"><%= ["Pierre", "Jean", "Edouard", "Clémence", "Marie", "Justine"].sample %></p>
+              <p><%= 100 - (index + 4) %>%</p>
+            </div>
+            <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+
+  <div class="puzzle d-none" data-tabs-target="puzzle">
+    <h1>Explorez et découvrez tous les monuments pour débloquer un puzzle</h1>
+    <p>Amusez-vous à résoudre le mystère qui se cache derrière.</p>
+
+        <div class="puzzle-board">
+            <!-- Les pièces du puzzle -->
+            <div class="puzzle-piece"></div>
+            <%= image_tag "Trophé_1.png"%>
+            <div class="puzzle-piece"></div>
+            <%= image_tag "Trophé_2.png"%>
+            <div class="puzzle-piece"></div>
+            <%= image_tag "Trophé_3.png"%>
+            <div class="puzzle-piece"></div>
+            <%= image_tag "Trophé_4.png"%>
+        </div>
+    </div>
   </div>
 </div>
