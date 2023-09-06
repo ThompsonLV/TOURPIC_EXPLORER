@@ -12,6 +12,11 @@ class UserMonumentsController < ApplicationController
     current_user.update!(score: new_score)
   end
 
+  def update
+    @user_monument = UserMonument.find(params[:id])
+    @user_monument.update(favoris: true)
+  end
+
   private
 
   def user_monument_params
