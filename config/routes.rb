@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "my_profil", to: "users#my_profil"
   get "parameters", to: "users#parameters"
   resources :user_answers, only: %i[create]
+  resources :user_monuments, only: :update
 
   get "/distance", to: "monuments#distance_between"
 end

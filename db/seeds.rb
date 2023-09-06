@@ -18,7 +18,7 @@ monuments_serialized = URI.open(url).read
 monuments = JSON.parse(monuments_serialized)
 i = 1
 monuments['values'].first(100).each do |monument|
-  if monument['type'] == 'PATRIMOINE_CULTUREL' && monument['illustrations'] != nil # && monument['address']['streetAddress'] && !monument["address"]["streetAddress"].start_with?("entre")
+  if monument['type'] == 'PATRIMOINE_CULTUREL' && monument['illustrations'] != nil
     p "Monument #{i}"
     new_monument = Monument.new(
       title: monument['nom'],
@@ -93,42 +93,71 @@ Monument.create!(
 
 p "Création des comptes"
 p '------------------------'
-@thomas = User.create!(email: "thomas@gmail.com", first_name: "Thomas", last_name: "Leveo", password: 'azerty', password_confirmation: 'azerty')
-@charles = User.create!(email: "charles@gmail.com", first_name: "Charles", last_name: "DeMont", password: 'azerty', password_confirmation: 'azerty')
-@lazari = User.create!(email: "lazari@gmail.com", first_name: "Lazari", last_name: "Kacimi", password: 'azerty', password_confirmation: 'azerty')
 
-10.times do
-  User.create!(
+avatar = Cloudinary::Api.resources(type: 'upload', prefix: "avatars/")
+
+@thomas = User.new(email: "thomas@gmail.com", first_name: "Thomas", last_name: "Le Véeo", password: 'azerty', password_confirmation: 'azerty')
+random_avatar = avatar["resources"].sample
+random_avatar_url = Cloudinary::Utils.cloudinary_url(random_avatar['public_id'], width: 300, height: 300, crop: 'fill')
+image_data = URI.open(random_avatar_url).read
+@thomas.photo.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
+@thomas.save
+
+@charles = User.new(email: "charles@gmail.com", first_name: "Charles", last_name: "DeMont", password: 'azerty', password_confirmation: 'azerty')
+random_avatar = avatar["resources"].sample
+random_avatar_url = Cloudinary::Utils.cloudinary_url(random_avatar['public_id'], width: 300, height: 300, crop: 'fill')
+image_data = URI.open(random_avatar_url).read
+@charles.photo.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
+@charles.save
+
+@lazari = User.new(email: "lazari@gmail.com", first_name: "Lazari", last_name: "Kacimi", password: 'azerty', password_confirmation: 'azerty')
+random_avatar = avatar["resources"].sample
+random_avatar_url = Cloudinary::Utils.cloudinary_url(random_avatar['public_id'], width: 300, height: 300, crop: 'fill')
+image_data = URI.open(random_avatar_url).read
+@lazari.photo.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
+@lazari.save
+
+5.times do
+  new_user = User.new(
     email: Faker::Internet.email,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     password: 'azerty',
     password_confirmation: 'azerty'
   )
+  random_avatar = avatar["resources"].sample
+  random_avatar_url = Cloudinary::Utils.cloudinary_url(random_avatar['public_id'], width: 300, height: 300, crop: 'fill')
+  image_data = URI.open(random_avatar_url).read
+  new_user.photo.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
+  new_user.save
 end
+
 
 p "Création des UserMonument "
 p '------------------------'
 
 users = User.all
 monuments = Monument.all
+
 a = 1
 users.each do |user|
   p "User #{a}"
-  random_monument = monuments.sample
   (1..10).to_a.sample.times do
+
+    random_monument = monuments.sample
     new_user_monument = UserMonument.create!(user: user, monument: random_monument, favoris: true)
 
-    image_url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.visiterlyon.com%2Fdecouvrir%2Fsites-et-monuments%2Fsites-et-monuments-remarquables%2Fla-croix-rousse&psig=AOvVaw3yVIDeS7_ddRcTIIjxXnaJ&ust=1694013043718000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJif77_gk4EDFQAAAAAdAAAAABAE"
-    image_data = URI.open(image_url).read
+    images = Cloudinary::Api.resources(type: 'upload', prefix: "monuments/")
+    random_image = images["resources"].sample
+    random_image_url = Cloudinary::Utils.cloudinary_url(random_image['public_id'], width: 300, height: 300, crop: 'fill')
+    image_data = URI.open(random_image_url).read
     new_user_monument.photos.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
     new_user_monument.save
   end
   a += 1
+
 end
 
-UserMonument.create!(user: @charles, monument: le_wagon, favoris: true)
-UserMonument.create!(user: @lazari, monument: le_wagon, favoris: true)
-
+p '------------------------'
 p "Terminé"
 p '------------------------'

@@ -4,12 +4,19 @@
 
 
 <div class="content_show">
-  <% if @unlocked_monument %>
+  <% if @unlocked_monument.present? %>
       <% if @monument.photo.attached? %>
-      <%= cl_image_tag(@monument.photo.key, class: "monument_photo") %>
+      <% if @unlocked_monument.favoris? %>
+        <i class="fas fa-heart heart" style="top: 10px; left: 10px"></i>
+      <% end %>
+      <%= cl_image_tag(@monument.photo.key, class: "monument_photo", data: { controller: "like", action: "click->like#aime", user_monument_id: @unlocked_monument&.id} )  %>
       <% else %>
-        <%= image_tag "img_monument.png", class: "monument_photo" %>
+        <%= image_tag "img_monument.png", class: "monument_photo" , data: { controller: "like", action: "click->like#aime", user_monument_id: @unlocked_monument&.id} %>
     <% end %>
+      <div class="image-container" >
+        <div class="instagram-heart" style='top:0px; left:0px;'>
+        </div>
+      </div>
       <div class= "long_description">
         <p><%= @monument.long_description%></p>
       </div>

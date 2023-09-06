@@ -22,7 +22,7 @@ class MonumentsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {monument: @monument}),
       }
     ]
-    @unlocked_monument = UserMonument.where(monument_id: @monument.id, user_id: current_user.id).any?
+    @unlocked_monument = UserMonument.where(monument_id: @monument.id, user_id: current_user.id).first
     @nearest_monuments = Monument.where.not(id: @monument.id)
                                  .near([@monument.latitude, @monument.longitude], 1)
   end
