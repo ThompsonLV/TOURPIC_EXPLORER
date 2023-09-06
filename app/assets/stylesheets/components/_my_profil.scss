@@ -62,8 +62,7 @@
     display: flex;
     align-items: flex-end;
     position: absolute;
-    top: 85px;
-    left: 152px;
+    transform: translate(26%, 380%);
   }
 }
 
@@ -100,4 +99,3 @@
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
-

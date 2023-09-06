@@ -3,13 +3,20 @@
 
 
 <div class="linear-background-profile">
-  <img class="avatar-rounded-profile" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
+  <%# <img class="avatar-rounded-profile" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt=""> %>
+  <%= cl_image_tag(@user.photo.key, class: "avatar-rounded-profile") %>
   <h4><%= @user.first_name %> <%= @user.last_name %></h4>
 </div>
 <div class="container-user-infos">
   <div class="user-infos">
     <div class="user-info-profile">
-      <h4><%= current_user.score %></h4>
+      <% if current_user.score == 0 && current_user.user_monuments.present?%>
+        <h4><%= current_user.user_monuments.count * 500 %></h4>
+      <% elsif current_user.score == 0 %>
+        <h4>0</h4>
+      <% else %>
+        <h4><%= current_user.score %></h4>
+      <% end %>
       <p>Points</p>
     </div>
     <div class="user-info-profile">
@@ -43,7 +50,7 @@
   <div class="container" data-controller="tabs">
 
     <div class="menu-tab">
-        <div class="title-tab" data-action="click->tabs#toggle4" data-tabs-target="title4">Trophé</div>
+        <div class="title-tab" data-action="click->tabs#toggle4" data-tabs-target="title4">Trophée</div>
     </div>
     <div class="menu-tab">
       <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
@@ -54,10 +61,14 @@
 
     <div class="monuments-grid" data-tabs-target="unlockedMonuments">
       <% if @user.user_monuments.any? %>
-        <% @user.user_monuments.each do |monument| %>
+        <% @user.user_monuments.each do |user_monument| %>
           <div class="monument-card">
-            <%= link_to monument_path(monument.monument_id) do %>
-              <img class="monument-card-picture" src="https://lh3.googleusercontent.com/p/AF1QipN6QOJA5SQjpUxMowHPGhhoZb4FTHR8BoBL27R2=s680-w680-h510" alt="">
+            <%= link_to monument_path(user_monument.monument) do %>
+              <% if user_monument.monument.photo.attached? %>
+                <%= cl_image_tag(user_monument.monument.photo.key, class: "monument-card-picture") %>
+              <% else %>
+                <%= image_tag "img_monument.png", class: "monument-card-picture" %>
+              <% end %>
             <% end %>
           </div>
         <% end %>
@@ -69,13 +80,13 @@
 
   <div class="monuments-grid d-none" data-tabs-target="myMonuments">
     <% if @user.user_monuments.any? %>
-      <div class="monument-card">
-        <% @user.user_monuments.each do |monument| %>
+      <% @user.user_monuments.each do |monument| %>
+        <div class="monument-card">
           <% if monument.photos.attached? %>
             <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% else %>
       <h4></h4>
       <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
@@ -86,12 +97,12 @@
       <% @users.each_with_index do |user, index| %>
         <div class="users-card">
           <div class="rank"><%= index + 1 %></div>
-          <img class="avatar-rounded" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt="">
-          <div class="users-card-infos">
-            <div class="users-name-pourcent">
-              <p class="name"><%= user.first_name %></p>
-              <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
-            </div>
+            <%= cl_image_tag(user.photo.key, class: "avatar-rounded") %>
+            <div class="users-card-infos">
+              <div class="users-name-pourcent">
+                <p class="name"><%= user.first_name %></p>
+                <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
+              </div>
             <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
           </div>
         </div>
