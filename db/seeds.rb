@@ -96,7 +96,7 @@ p '------------------------'
 
 avatar = Cloudinary::Api.resources(type: 'upload', prefix: "avatars/")
 
-@thomas = User.new(email: "thomas@gmail.com", first_name: "Thomas", last_name: "Le Véeo", password: 'azerty', password_confirmation: 'azerty')
+@thomas = User.new(email: "thomas@gmail.com", first_name: "Thomas", last_name: "Le Véo", password: 'azerty', password_confirmation: 'azerty')
 random_avatar = avatar["resources"].sample
 random_avatar_url = Cloudinary::Utils.cloudinary_url(random_avatar['public_id'], width: 300, height: 300, crop: 'fill')
 image_data = URI.open(random_avatar_url).read
