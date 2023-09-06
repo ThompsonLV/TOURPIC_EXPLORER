@@ -118,3 +118,12 @@ background-color: $blue;
 .mapboxgl-user-location-accuracy-circle{
   display: none
 }
+
+.coeur-content {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 20000;
+  height: 29px;
+  width: 29px;
+}

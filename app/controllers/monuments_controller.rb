@@ -3,7 +3,11 @@ class MonumentsController < ApplicationController
   before_action :set_monument, only: %i[show map]
 
   def index
-    @monuments = Monument.all
+    if params[:favoris] == "true"
+      @monuments = Monument.includes(:user_monuments).where(user_monuments: { favoris: true, user: current_user })
+    else
+      @monuments = Monument.all
+    end
     @markers = @monuments.geocoded.map do |monument|
       {
         lat: monument.latitude,
