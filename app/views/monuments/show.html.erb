@@ -1,3 +1,8 @@
+<% content_for :meta_title, "#{@monument.title} is on #{DEFAULT_META["meta_title"]}" %>
+<% content_for :meta_description, @monument.long_description %>
+<% content_for :meta_image, cl_image_path(@monument.photo.key) if @monument.photo.attached? %>
+
+
 <div class="content_show">
   <% if @unlocked_monument %>
       <% if @monument.photo.attached? %>
