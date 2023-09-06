@@ -94,7 +94,7 @@
               <p class="name"><%= user.first_name %></p>
               <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
             </div>
-          <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
+          <div class="users-progression" style="width: <%= (user.user_monuments.count) %> "><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
         </div>
       </div>
     <% end %>
