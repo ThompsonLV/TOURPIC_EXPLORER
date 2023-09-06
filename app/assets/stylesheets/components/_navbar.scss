@@ -30,16 +30,22 @@
   z-index : 999
 }
 
-.logo-image {
-  width: 31.168px;
-  height: 27.272px;
-  flex-shrink: 0;
-  margin-right: 10px;
-}
+
+
 
 .navbar-content {
   height: 28px;
   width: 28px;
+
+
+  &:active {
+    filter: brightness(0.5); /* Réduire la luminosité à 50% (assombrir) */
+  }
+
+  /* Styles CSS pour les autres liens */
+  // .a .navbar-content svg {
+  //   filter: brightness(1); /* Réinitialiser la luminosité à 100% (normal) */
+  // }
 }
 
 

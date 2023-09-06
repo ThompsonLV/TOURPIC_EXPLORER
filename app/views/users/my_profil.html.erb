@@ -10,13 +10,7 @@
 <div class="container-user-infos">
   <div class="user-infos">
     <div class="user-info-profile">
-      <% if current_user.score == 0 && current_user.user_monuments.present?%>
-        <h4><%= current_user.user_monuments.count * 500 %></h4>
-      <% elsif current_user.score == 0 %>
-        <h4>0</h4>
-      <% else %>
         <h4><%= current_user.score %></h4>
-      <% end %>
       <p>Points</p>
     </div>
     <div class="user-info-profile">
