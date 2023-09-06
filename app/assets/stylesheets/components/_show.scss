@@ -93,7 +93,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .photo_show {
@@ -159,29 +159,32 @@ filter: blur(6px);
   text-align: center;
 }
 
+.content_show {
+  padding-bottom: 80px;
+}
 
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 380px) {
     #map_show {
-      width: 130px;
+      min-width: 100px;
       height: 100%;
     }
 
     .info-container {
-      padding: 20px;
+      padding: 12px;
     }
 
     .titre_chemin {
-      font-size: 18px !important;
+      font-size: px !important;
       font-weight: bold;
     }
 
     .chemin {
-      text-size-adjust: 16px;
+      text-size-adjust: 20px !important;
     }
 
     .bulle {
       margin-top: 15px;
-      width: 16vh;
+      width: 15vh;
       height: 25px;
     }
 
@@ -191,8 +194,5 @@ filter: blur(6px);
       top: 32%;
       left: 30px;
       right: 30px;
-    }
-    .content_show {
-      padding-bottom: 80px;
     }
 }
