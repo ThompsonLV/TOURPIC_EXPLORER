@@ -118,3 +118,10 @@ background-color: $blue;
 .mapboxgl-user-location-accuracy-circle{
   display: none
 }
+
+.test-btn {
+  position: fixed;
+  top: 0;
+  z-index: 20000;
+  background-color: red;
+}

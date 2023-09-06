@@ -1,8 +1,8 @@
 
 
- <div id="map"
+<div id="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
+  <%= link_to "Favoris", monuments_path(favoris: true), class: "test-btn" %>
+</div>
