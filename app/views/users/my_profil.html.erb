@@ -1,45 +1,42 @@
-
 <div class="content_show">
 
-
-<div class="linear-background-profile">
-  <%# <img class="avatar-rounded-profile" src="https://imgresizer.eurosport.com/unsafe/1200x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2021/05/06/3127156-64098848-2560-1440.jpg" alt=""> %>
-  <%= cl_image_tag(@user.photo.key, class: "avatar-rounded-profile") %>
-  <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-</div>
-<div class="container-user-infos">
-  <div class="user-infos">
-    <div class="user-info-profile">
-        <h4><%= current_user.score %></h4>
-      <p>Points</p>
-    </div>
-    <div class="user-info-profile">
-      <h4><%= @user.user_monuments.count %></h4>
-      <p>Monuments débloqués</p>
-    </div>
-    <div class="user-info-profile">
-      <h4>0</h4>
-      <p>Followers</p>
+  <div class="linear-background-profile">
+    <%= cl_image_tag(@user.photo.key, class: "avatar-rounded-profile") %>
+    <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+  </div>
+  <div class="container-user-infos">
+    <div class="user-infos">
+      <div class="user-info-profile">
+          <h4><%= current_user.score %></h4>
+        <p>Points</p>
+      </div>
+      <div class="user-info-profile">
+        <h4><%= @user.user_monuments.count %></h4>
+        <p>Monuments débloqués</p>
+      </div>
+      <div class="user-info-profile">
+        <h4>0</h4>
+        <p>Followers</p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
-  <div class="classement">
-    <div class="card-back">
-      <h4 class="number-e">+1000</h4>
-      <p class="title-trophy">Classement</p>
-    </div>
-    <div class="card-back">
-      <h4 class="number-e"><%= @user.user_monuments.count %></h4>
-      <p class="title-trophy">Flash</p>
-    </div>
-    <div class="card-back">
-      <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
-      <p class="title-trophy">Manquants </p>
+  <div class="container">
+    <div class="classement">
+      <div class="card-back">
+        <h4 class="number-e">+1000</h4>
+        <p class="title-trophy">Classement</p>
+      </div>
+      <div class="card-back">
+        <h4 class="number-e"><%= @user.user_monuments.count %></h4>
+        <p class="title-trophy">Flash</p>
+      </div>
+      <div class="card-back">
+        <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
+        <p class="title-trophy">Manquants </p>
+      </div>
     </div>
   </div>
-</div>
 
   <div class="container" data-controller="tabs">
 
@@ -87,21 +84,21 @@
     <% end %>
   </div>
 
-    <div class="user-cards-all d-none" data-tabs-target="classement">
-      <% @users.each_with_index do |user, index| %>
-        <div class="users-card">
-          <div class="rank"><%= index + 1 %></div>
-            <%= cl_image_tag(user.photo.key, class: "avatar-rounded") %>
-            <div class="users-card-infos">
-              <div class="users-name-pourcent">
-                <p class="name"><%= user.first_name %></p>
-                <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
-              </div>
-            <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
-          </div>
+  <div class="user-cards-all d-none" data-tabs-target="classement">
+    <% @users.each_with_index do |user, index| %>
+      <div class="users-card">
+        <div class="rank"><%= index + 1 %></div>
+          <%= cl_image_tag(user.photo.key, class: "avatar-rounded") %>
+          <div class="users-card-infos">
+            <div class="users-name-pourcent">
+              <p class="name"><%= user.first_name %></p>
+              <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
+            </div>
+          <div class="users-progression"><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 
 
 

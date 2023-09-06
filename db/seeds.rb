@@ -145,7 +145,7 @@ users.each do |user|
   (1..10).to_a.sample.times do
 
     random_monument = monuments.sample
-    new_user_monument = UserMonument.create!(user: user, monument: random_monument, favoris: true)
+    new_user_monument = UserMonument.create!(user: user, monument: random_monument, favoris: false)
 
     images = Cloudinary::Api.resources(type: 'upload', prefix: "monuments/")
     random_image = images["resources"].sample
