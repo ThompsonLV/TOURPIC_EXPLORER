@@ -21,7 +21,7 @@
         <p><%= @monument.long_description%></p>
       </div>
       <div class= "quizz">
-        <%= link_to "Gagnez plus de point avec un quizz !", monument_questions_path(@monument), class: "quizz_btn" %>
+        <%= link_to "Gagnez plus de points avec un quizz !", monument_questions_path(@monument), class: "quizz_btn" %>
       </div>
   <% else %>
 
@@ -33,7 +33,7 @@
     <div class= "info_type">
       <p class= "info">19 flasheurs</p>
       <div class="separator"></div>
-      <p class= "info">+400pt</p>
+      <p class= "info">+ 500pt</p>
       <div class="separator"></div>
       <p class= "info"><%= @monument.distance_from([45.769436, 4.8348738]).round(2) %> km</p>
     </div>
@@ -44,7 +44,7 @@
           data-photos-monument-id-value="<%= @monument.id %>">
         <div class="cam d-none" data-photos-target="camera">
           <button id="camera-button">
-            <%= image_tag "camera.svg" %>
+            <i class="fa-solid fa-camera fa-xl dark-blue"></i>
           </button>
 
 
