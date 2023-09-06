@@ -8,3 +8,8 @@
 .text-center {
   width: 300px;
 }
+
+.hidden-puzzle {
+  opacity: 0.2;
+  filter: blur(10px);
+}

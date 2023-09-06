@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def my_profil
-    @user = current_user
+    @user      = current_user
     @monuments = Monument.all
   end
 
