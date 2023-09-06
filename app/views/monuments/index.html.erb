@@ -1,8 +1,21 @@
-
+  <%# <div class="coeur"> %>
+    <%# <%= link_to my_profil_path, class: "coeur_link" do %>
+    <%# modifier la root_path %>
+      <%# <%= image_tag "coeur.svg", class: "coeur-content" %>
+    <%# <% end %>
+  <%# </div> %>
 
 <div id="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  <%= link_to "Favoris", monuments_path(favoris: true), class: "test-btn" %>
+    <% if params[:favoris] == "true" %>
+      <%= link_to  monuments_path, class: "test-btn" do %>
+        <%= image_tag "full-heart.svg", class: "coeur-content" %>
+      <% end %>
+    <% else %>
+      <%= link_to  monuments_path(favoris: true), class: "test-btn" do %>
+        <%= image_tag "coeur.svg", class: "coeur-content" %>
+      <% end %>
+    <% end %>
 </div>

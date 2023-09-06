@@ -2,10 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="like"
 export default class extends Controller {
+  static values = {
+    stop: Boolean
+  }
 
   connect() {
     this.clicked = false
-    this.stop = false
+    this.stop = this.stopValue
   }
     aime(event) {
       if (this.stop) return;
@@ -17,6 +20,7 @@ export default class extends Controller {
         event.currentTarget.insertAdjacentHTML("afterend", html)
         setTimeout(() => {
           document.querySelector(".heart").classList.add("go")
+          console.log("ameojr");
         }, 1000);
         this.stop = true
 

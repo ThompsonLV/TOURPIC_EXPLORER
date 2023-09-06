@@ -1,12 +1,17 @@
+<% content_for :meta_title, "#{@monument.title} is on #{DEFAULT_META["meta_title"]}" %>
+<% content_for :meta_description, @monument.long_description %>
+<% content_for :meta_image, cl_image_path(@monument.photo.key) if @monument.photo.attached? %>
+
+
 <div class="content_show">
   <% if @unlocked_monument.present? %>
       <% if @monument.photo.attached? %>
       <% if @unlocked_monument.favoris? %>
         <i class="fas fa-heart heart" style="top: 10px; left: 10px"></i>
       <% end %>
-      <%= cl_image_tag(@monument.photo.key, class: "monument_photo", data: { controller: "like", action: "click->like#aime", user_monument_id: @unlocked_monument&.id} )  %>
+      <%= cl_image_tag(@monument.photo.key, class: "monument_photo", data: { controller: "like", like_stop_value: @unlocked_monument.favoris?, action: "click->like#aime", user_monument_id: @unlocked_monument&.id} )  %>
       <% else %>
-        <%= image_tag "img_monument.png", class: "monument_photo" , data: { controller: "like", action: "click->like#aime", user_monument_id: @unlocked_monument&.id} %>
+        <%= image_tag "img_monument.png", class: "monument_photo" , data: { controller: "like", data_like_stop_value: @unlocked_monument.favoris?, action: "click->like#aime", user_monument_id: @unlocked_monument&.id} %>
     <% end %>
       <div class="image-container" >
         <div class="instagram-heart" style='top:0px; left:0px;'>

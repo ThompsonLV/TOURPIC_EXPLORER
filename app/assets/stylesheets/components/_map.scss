@@ -119,9 +119,11 @@ background-color: $blue;
   display: none
 }
 
-.test-btn {
+.coeur-content {
   position: fixed;
-  top: 0;
+  top: 10px;
+  left: 10px;
   z-index: 20000;
-  background-color: red;
+  height: 29px;
+  width: 29px;
 }
