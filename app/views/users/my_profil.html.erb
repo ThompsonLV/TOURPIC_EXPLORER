@@ -103,20 +103,21 @@
   <div class="puzzle d-none" data-tabs-target="puzzle">
     <h1 class= "titre_show">Explorez et découvrez tous les monuments pour débloquer une surprise.</h1>
 
-<% if @user = @unlocked_monument  %>
-
-<% end %>
-        <div class="puzzle-board">
-            <!-- Les pièces du puzzle -->
-            <div class="puzzle-piece"></div>
-            <%= image_tag "Trophé_1.png"%>
-            <div class="puzzle-piece"></div>
-            <%= image_tag "Trophé_2.png"%>
-            <div class="puzzle-piece"></div>
-            <%= image_tag "Trophé_3.png"%>
-            <div class="puzzle-piece"></div>
-            <%= image_tag "Trophé_4.png"%>
+    <div class="puzzle-board">
+        <!-- Les pièces du puzzle -->
+        <div class="puzzle-piece <%= "hidden-puzzle" if @user.unlocked_monuments_percentage.zero? %>">
+          <%= image_tag "Trophé_1.png"%>
         </div>
+        <div class="puzzle-piece <%= "hidden-puzzle" if @user.unlocked_monuments_percentage < 25 %>">
+          <%= image_tag "Trophé_2.png"%>
+        </div>
+        <div class="puzzle-piece <%= "hidden-puzzle" if @user.unlocked_monuments_percentage < 50 %>">
+          <%= image_tag "Trophé_3.png"%>
+        </div>
+        <div class="puzzle-piece <%= "hidden-puzzle" if @user.unlocked_monuments_percentage < 100 %>">
+          <%= image_tag "Trophé_4.png"%>
+        </div>
+    </div>
     </div>
   </div>
 </div>
