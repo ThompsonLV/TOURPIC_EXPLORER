@@ -144,7 +144,6 @@ users.each do |user|
   p "User #{a}"
   (1..10).to_a.sample.times do
 
-
     random_monument = monuments.sample
     new_user_monument = UserMonument.create!(user: user, monument: random_monument, favoris: true)
 
@@ -156,8 +155,6 @@ users.each do |user|
     new_user_monument.save
   end
   a += 1
-
-  user.score = user.user_monuments.count * 500
 
 end
 
