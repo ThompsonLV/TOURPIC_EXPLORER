@@ -1,69 +1,30 @@
-
-<%#
-    <div class="navbar-content">
-
-    <div class="camera-container" data-controller="photos">
-      <button id="camera-button">Appareil photo</button>
-      <video id="camera-feed" autoplay></video>
-    </div>
-  </div> %>
-
-
-    <!-- Autres éléments de la barre de navigation -->
-
-
-    <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <%# <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          <%# </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          <%# </li>
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          <%# </a> %>
-            <%# <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            <%# </div> %>
-
-          <%# </li> %>
-        <%# <% else
-          <li class="nav-item"> %>
-            <%# <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%# </li> %>
-        <%# <% end %>
-      <%# </ul>
-    </div> %>
-  <%# </div>
-</div> %>
-
-<div class= "navbar_container">
+<div data-controller="darken-link" >
+  <div class= "navbar_container">
     <div class= "navbar-content">
       <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "home.svg", class: "navbar-content", style: "fill: red;" %>
+        <i
+          class="fa-solid fa-house fa-xl light-blue"
+          data-darken-link-target="link1"
+        ></i>
       <% end %>
     </div>
 
-      <div class= "navbar-content">
-      <%= link_to my_profil_path, class: "navbar-classement" do %>
-      <%# modifier la root_path %>
-        <%= image_tag "classement.svg", class: "navbar-content" %>
+    <div class= "navbar-content">
+      <%= link_to my_profil_path, class: "navbar-brand" do %>
+        <i
+          class="fa-solid fa-chart-simple fa-xl light-blue"
+          data-darken-link-target="link2"
+        ></i>
       <% end %>
     </div>
 
-      <div class= "navbar-content">
-      <%= link_to parameters_path, class: "navbar-profil" do %>
-        <%# modifier la root_path %>
-        <%= image_tag "profil.svg", class: "navbar-content" %>
+    <div class= "navbar-content">
+      <%= link_to parameters_path, class: "navbar-brand" do %>
+        <i
+          class="fa-solid fa-user fa-xl light-blue"
+          data-darken-link-target="link3"
+        ></i>
       <% end %>
     </div>
+  </div>
 </div>

@@ -30,24 +30,23 @@
   z-index : 999
 }
 
-
-
-
 .navbar-content {
   height: 28px;
   width: 28px;
 
-
-  &:active {
-    filter: brightness(0.5); /* Réduire la luminosité à 50% (assombrir) */
-  }
-
-  /* Styles CSS pour les autres liens */
-  // .a .navbar-content svg {
-  //   filter: brightness(1); /* Réinitialiser la luminosité à 100% (normal) */
-  // }
 }
 
+.navbar-brand .light-blue {
+  color: $lightblue;
+}
+
+.navbar-brand .dark-blue {
+  color: $darkblue;
+}
+
+.navbar-brand:hover .light-blue {
+  color: $darkblue;
+}
 
 @media screen and (max-width: 390px) {
   .navbar_container {
