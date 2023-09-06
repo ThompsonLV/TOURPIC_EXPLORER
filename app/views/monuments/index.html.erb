@@ -1,8 +1,12 @@
+  <%# <div class="coeur"> %>
+    <%# <%= link_to my_profil_path, class: "coeur_link" do %>
+    <%# modifier la root_path %>
+      <%# <%= image_tag "coeur.svg", class: "coeur-content" %>
+    <%# <% end %>
+  <%# </div> %>
+<div id="map"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
-
- <div id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
+</div>
