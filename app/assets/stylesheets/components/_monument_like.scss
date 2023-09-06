@@ -1,0 +1,29 @@
+.heart {
+  animation: scale .6s ease-in-out forwards;
+  color: red;
+  font-size: 2rem;
+  position: absolute;
+  &.go {
+    animation: go .3s ease-in-out forwards;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2);
+
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes go {
+  100% {
+    left: 10px;
+    top: 10px;
+  }
+}
