@@ -24,7 +24,11 @@
   <div class="container">
     <div class="classement">
       <div class="card-back">
-        <h4 class="number-e">+1000</h4>
+        <% if @users.index(@user) == 0 %>
+          <h4 class="number-e"><%= @users.index(@user) +1 %>er</h4>
+        <% else %>
+          <h4 class="number-e"><%= @users.index(@user) +1 %>ème</h4>
+        <% end %>
         <p class="title-trophy">Classement</p>
       </div>
       <div class="card-back">
