@@ -47,16 +47,12 @@ p 'Construction du Wagon'
 p '------------------------'
 le_wagon = Monument.create!(
   title: "Le Wagon",
-  short_description: "Le Wagon : école coding bootcamp renommée pour des
-                    formations intensives en développement web et programmation.",
-  long_description: "Le Wagon est une école de codage ou 'coding bootcamp'
-                    qui propose des formations intensives en développement
-                    web et en programmation informatique. Cette école est
-                    présente dans de nombreuses villes à travers le monde
-                    et offre des programmes de formation destinés à enseigner
-                    les compétences en codage et en développement web en un laps
-                    de temps relativement court, généralement de 9 à 24 semaines,
-                    en fonction du programme choisi.",
+  short_description: "Le Wagon Lyon : situé dans le quartier de Terreaux,
+                    l'école de codage propose des formations de web développement.",
+  long_description: "Le Wagon Lyon a été créé en 2016 et est situé dans le quartier
+                    de Terreaux. C'est une école de codage qui propose des formations
+                    en développement web et en Data Analytics, en format 2 ou 6 mois,
+                    sur campus ou en ligne.",
   points: 500,
   address: "20 Rue des Capucins, 69001 Lyon"
 )
@@ -154,6 +150,7 @@ users.each do |user|
     new_user_monument.photos.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
     new_user_monument.save
   end
+  user.score = (UserMonument.where(user_id: user.id).count) * 500
   a += 1
 
 end
