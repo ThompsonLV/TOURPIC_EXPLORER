@@ -5,5 +5,6 @@ class QuestionsController < ApplicationController
     @monument            = Monument.find(params[:monument_id])
     @number_of_questions = @monument.questions.count
     @question            = @monument.questions.first if @monument
+    @counter = 1
   end
 end

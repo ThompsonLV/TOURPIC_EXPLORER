@@ -61,7 +61,11 @@ input[type="radio"] {
 
 .question-style{
   font-family: 'Inter';
-  padding: 16px;
+  padding: 0px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .timer-style{
@@ -81,36 +85,47 @@ input[type="radio"] {
   position: absolute;
   margin: auto;
   margin-top: 113px;
-  height: 40px;
-  width: 40px;
+  height: 48px;
+  width: 48px;
+  background-color: white;
+  border-radius: 50%;
   text-align: center;
   z-index: 2;
   top: -78px;
 }
 .timer-type {
   padding: 5px;
-  font-size: calc(1.3rem + 0.6vw)
+  font-size: calc(1.3rem + 0.6vw);
+  margin-bottom: 0;
 }
 #countdown-number {
   color: rgb(8, 12, 14);
   display: inline-block;
   line-height: 40px;
+  padding: 5px;
+}
+
+.numeroter{
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
 }
 
 .timer {
   position: absolute;
-  top: -2px;
-  right: 0;
-  width: 40px;
-  height: 40px;
+  top: 0px;
+  right: 0px;
+  width: 50px;
+  height: 50px;
   transform: rotateY(-180deg) rotateZ(-90deg);
+  overflow: visible;
 }
 
 .timer circle {
-  stroke-dasharray: 113px;
+  stroke-dasharray: 150px;
   stroke-dashoffset: 0px;
   stroke-linecap: round;
-  stroke-width: 2px;
+  stroke-width: 5px;
   stroke: #C1F1E0;
   fill: none;
   animation: countdown 30s linear infinite forwards;
@@ -121,7 +136,7 @@ input[type="radio"] {
     stroke-dashoffset: 0px;
   }
   to {
-    stroke-dashoffset: 113px;
+    stroke-dashoffset: 150px;
   }
 }
   .answer {
