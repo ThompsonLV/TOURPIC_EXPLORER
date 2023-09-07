@@ -1,9 +1,11 @@
 <div class="content_show">
 
-  <div class="linear-background-profile">
-    <%= cl_image_tag(@user.photo.key, class: "avatar-rounded-profile") %>
+  <div class="linear-background-profile" data-controller="profil">
+    <%= cl_image_tag(@user.photo.key, class: "avatar-rounded-profile", data: { profil_target: "avatar"}) %>
     <h4><%= @user.first_name %> <%= @user.last_name %></h4>
   </div>
+
+
   <div class="container-user-infos">
     <div class="user-infos">
       <div class="user-info-profile">

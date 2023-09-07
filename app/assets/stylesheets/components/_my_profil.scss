@@ -6,9 +6,9 @@
 .classement {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr ;
-  margin: 12px;
+  margin: 5px;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 
   h4 {
     font-family: 'inter';
@@ -55,18 +55,22 @@
   object-fit: cover;
 }
 
+
 .linear-background-profile{
   background: linear-gradient(180deg, $darkblue 30%, $blue 90%);
   height: 12vh;
   display: flex;
-  justify-content: center;
-  position: relative;
+  // justify-content: center;
+  position: sticky;
+  top: 0px;
+
 
   h4{
     display: flex;
-    align-items: flex-end;
-    transform: translate(30%, 0%);
+    align-self: center;
     color: white;
+    margin-left: 16px;
+    margin-bottom: 0;
   }
 }
 
