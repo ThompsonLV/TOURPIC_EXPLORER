@@ -67,11 +67,11 @@ le_wagon.save
 
 questions1 = Question.create!(content: "Dans quel quartier se situe Le Wagon Lyon ?", monument: le_wagon)
 Answer.create!(content: "Confluence", question: questions1, success: false)
-Answer.create!(content: "Croix-rousse", question: questions1, success: true)
+Answer.create!(content: "Terreaux", question: questions1, success: true)
 Answer.create!(content: "Part-dieu", question: questions1, success: false)
 
-questions2 = Question.create!(content: "En quelle année a été crée Le Wagon ?", monument: le_wagon)
-Answer.create!(content: "2013", question: questions2, success: true)
+questions2 = Question.create!(content: "En quelle année a été crée Le Wagon Lyon?", monument: le_wagon)
+Answer.create!(content: "2016", question: questions2, success: true)
 Answer.create!(content: "2018", question: questions2, success: false)
 Answer.create!(content: "2009", question: questions2, success: false)
 
