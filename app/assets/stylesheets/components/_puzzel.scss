@@ -13,3 +13,14 @@
   opacity: 0.2;
   filter: blur(10px);
 }
+
+.img_puzz {
+  width: 42vh;
+}
+
+@media screen and (max-width: 380px) {
+
+  .img_puzz {
+    width: 52vh;
+  }
+}
