@@ -1,116 +1,115 @@
-<div class="content_show">
+<div class="content_show" data-controller="hover-picture" data-hover-picture-target="addlargephoto">
+  <div data-hover-picture-target="blured">
 
-  <div class="linear-background-profile" data-controller="profil">
-    <%= cl_image_tag(@user.photo.key, class: "avatar-rounded-profile", data: { profil_target: "avatar"}) %>
-    <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-  </div>
-
-
-  <div class="container-user-infos">
-    <div class="user-infos">
-      <div class="user-info-profile">
-          <h4><%= current_user.score %></h4>
-        <p>Points</p>
-      </div>
-      <div class="user-info-profile">
-        <h4><%= @user.user_monuments.count %></h4>
-        <p>Monuments débloqués</p>
-      </div>
-      <div class="user-info-profile">
-        <h4>0</h4>
-        <p>Followers</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="classement">
-      <div class="card-back">
-        <% if @users.index(@user) == 0 %>
-          <h4 class="number-e"><%= @users.index(@user) +1 %>er</h4>
-        <% else %>
-          <h4 class="number-e"><%= @users.index(@user) +1 %>ème</h4>
-        <% end %>
-        <p class="title-trophy">Classement</p>
-      </div>
-      <div class="card-back">
-        <h4 class="number-e"><%= @user.user_monuments.count %></h4>
-        <p class="title-trophy">Flash</p>
-      </div>
-      <div class="card-back">
-        <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
-        <p class="title-trophy">Manquants </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container" data-controller="tabs">
-
-    <div class="menu-tab">
-        <div class="title-tab" data-action="click->tabs#toggle4" data-tabs-target="title4">Trophée</div>
-    </div>
-    <div class="menu-tab">
-      <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
-      <div class="title-tab border-tabs" data-action="click->tabs#toggle2" data-tabs-target="title2">Mes photos</div>
-      <div class="title-tab " data-action="click->tabs#toggle3" data-tabs-target="title3">Classement</div>
+    <div class="linear-background-profile" data-controller="profil">
+      <%= cl_image_tag(@user.photo.key, class: "avatar-rounded-profile", data: { profil_target: "avatar"}) %>
+      <h4><%= @user.first_name %> <%= @user.last_name %></h4>
     </div>
 
 
-    <div class="monuments-grid" data-tabs-target="unlockedMonuments">
-      <% if @user.user_monuments.any? %>
-        <% @user.user_monuments.each do |user_monument| %>
-          <div class="monument-card">
-            <%= link_to monument_path(user_monument.monument) do %>
-              <% if user_monument.monument.photo.attached? %>
-                <%= cl_image_tag(user_monument.monument.photo.key, class: "monument-card-picture") %>
-              <% else %>
-                <%= image_tag "img_monument.png", class: "monument-card-picture" %>
+    <div class="container-user-infos">
+      <div class="user-infos">
+        <div class="user-info-profile">
+            <h4><%= current_user.score %></h4>
+          <p>Points</p>
+        </div>
+        <div class="user-info-profile">
+          <h4><%= @user.user_monuments.count %></h4>
+          <p>Monuments débloqués</p>
+        </div>
+        <div class="user-info-profile">
+          <h4>0</h4>
+          <p>Followers</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="classement">
+        <div class="card-back">
+          <% if @users.index(@user) == 0 %>
+            <h4 class="number-e"><%= @users.index(@user) +1 %>er</h4>
+          <% else %>
+            <h4 class="number-e"><%= @users.index(@user) +1 %>ème</h4>
+          <% end %>
+          <p class="title-trophy">Classement</p>
+        </div>
+        <div class="card-back">
+          <h4 class="number-e"><%= @user.user_monuments.count %></h4>
+          <p class="title-trophy">Flash</p>
+        </div>
+        <div class="card-back">
+          <h4 class="number-e"><%= (@monuments.count - @user.user_monuments.count) %></h4>
+          <p class="title-trophy">Manquants </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" data-controller="tabs">
+      <div class="menu-tab">
+          <div class="title-tab" data-action="click->tabs#toggle4" data-tabs-target="title4">Trophée</div>
+      </div>
+      <div class="menu-tab">
+        <div class="title-tab underline" data-action="click->tabs#toggle1" data-tabs-target="title1">Monuments débloqués</div>
+        <div class="title-tab border-tabs" data-action="click->tabs#toggle2" data-tabs-target="title2">Mes photos</div>
+        <div class="title-tab " data-action="click->tabs#toggle3" data-tabs-target="title3">Classement</div>
+      </div>
+
+
+      <div class="monuments-grid" data-tabs-target="unlockedMonuments">
+        <% if @user.user_monuments.any? %>
+          <% @user.user_monuments.each do |user_monument| %>
+            <div class="monument-card">
+              <%= link_to monument_path(user_monument.monument) do %>
+                <% if user_monument.monument.photo.attached? %>
+                  <%= cl_image_tag(user_monument.monument.photo.key, class: "monument-card-picture") %>
+                <% else %>
+                  <%= image_tag "img_monument.png", class: "monument-card-picture" %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <h4></h4>
+          <h4 class="text-center">Vous n'avez pas débloqué de monuments...</h4>
+        <% end %>
+      </div>
+
+      <div class="monuments-grid d-none" data-tabs-target="myMonuments">
+        <% if @user.user_monuments.any? %>
+          <% @user.user_monuments.each do |monument| %>
+            <div class="monument-card" >
+              <% if monument.photos.attached? %>
+                <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture", data: { action: "touchstart->hover-picture#addphoto touchend->hover-picture#removephoto", hover_picture_target: "photo" } %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <h4></h4>
+          <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
+        <% end %>
+      </div>
+
+      <div class="user-cards-all d-none" data-tabs-target="classement">
+        <% @users.each_with_index do |user, index| %>
+          <div class="users-card">
+            <div class="rank"><%= index + 1 %></div>
+              <%= cl_image_tag(user.photo.key, class: "avatar-rounded") %>
+              <div class="users-card-infos">
+                <div class="users-name-pourcent">
+                  <p class="name"><%= user.first_name %></p>
+                  <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
+                </div>
+              <div class="users-progression" style="width: <%= (user.unlocked_monuments_percentage) %>% "><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
+            </div>
           </div>
         <% end %>
-      <% else %>
-        <h4></h4>
-        <h4 class="text-center">Vous n'avez pas débloqué de monuments...</h4>
-      <% end %>
-    </div>
-
-  <div class="monuments-grid d-none" data-tabs-target="myMonuments">
-    <% if @user.user_monuments.any? %>
-      <% @user.user_monuments.each do |monument| %>
-        <div class="monument-card">
-          <% if monument.photos.attached? %>
-            <%= cl_image_tag monument.photos.first.key, class: "my-photo-card-picture" %>
-          <% end %>
-        </div>
-      <% end %>
-    <% else %>
-      <h4></h4>
-      <h4 class="text-center">Vous n'avez pas pris de photos...</h4>
-    <% end %>
-  </div>
-
-  <div class="user-cards-all d-none" data-tabs-target="classement">
-    <% @users.each_with_index do |user, index| %>
-      <div class="users-card">
-        <div class="rank"><%= index + 1 %></div>
-          <%= cl_image_tag(user.photo.key, class: "avatar-rounded") %>
-          <div class="users-card-infos">
-            <div class="users-name-pourcent">
-              <p class="name"><%= user.first_name %></p>
-              <p><%= (user.user_monuments.count.to_f / @monuments.count * 100).round(0) %>%</p>
-            </div>
-          <div class="users-progression" style="width: <%= (user.unlocked_monuments_percentage) %>% "><%# il faudra implementer si l'on peut une méthode qui permette d'avoir la progression de tous les autres users %></div>
-        </div>
       </div>
-    <% end %>
-  </div>
 
 
 
-  <div class="puzzle d-none" data-tabs-target="puzzle">
-    <h1 class= "titre_show">Explorez et découvrez tous les monuments pour débloquer une surprise.</h1>
-
+      <div class="puzzle d-none" data-tabs-target="puzzle">
+        <h1 class= "titre_show">Explorez et découvrez tous les monuments pour débloquer une surprise.</h1>
     <div class="puzzle-board">
         <!-- Les pièces du puzzle -->
         <div class="puzzle-piece <%= "hidden-puzzle" if @user.unlocked_monuments_percentage.zero? %>">
@@ -125,7 +124,7 @@
         <div class="puzzle-piece <%= "hidden-puzzle" if @user.unlocked_monuments_percentage < 100 %>">
           <%= image_tag "Trophé_4.png", class: "img_puzz"%>
         </div>
-    </div>
+      </div>
     </div>
   </div>
 </div>
