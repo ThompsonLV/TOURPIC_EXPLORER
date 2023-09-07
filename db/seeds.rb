@@ -146,7 +146,7 @@ users.each do |user|
 
     images = Cloudinary::Api.resources(type: 'upload', prefix: "monuments/")
     random_image = images["resources"].sample
-    random_image_url = Cloudinary::Utils.cloudinary_url(random_image['public_id'], width: 300, height: 300, crop: 'fill')
+    random_image_url = Cloudinary::Utils.cloudinary_url(random_image['public_id'])
     image_data = URI.open(random_image_url).read
     new_user_monument.photos.attach(io: StringIO.new(image_data), filename: "theatre.jpeg", content_type: "image/jpeg")
     new_user_monument.save
