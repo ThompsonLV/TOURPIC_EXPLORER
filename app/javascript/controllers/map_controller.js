@@ -14,8 +14,8 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/streets-v10",
-      center: [-24, 42], // starting center in [lng, lat]
-      zoom: 1 // starting zoom
+      center: [4.8348625, 45.7694579], // starting center in [lng, lat]
+      zoom: 12 // starting zoom
     })
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
@@ -42,9 +42,9 @@ export default class extends Controller {
     })
   }
   #fitMapToMarkers() {
-    const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 20, maxZoom: 13, duration: 0 })
+    // const bounds = new mapboxgl.LngLatBounds()
+    // this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    // this.map.fitBounds(bounds, { padding: 20, maxZoom: 30, duration: 0 })
   }
 
   #addLocateUserToMap() {
