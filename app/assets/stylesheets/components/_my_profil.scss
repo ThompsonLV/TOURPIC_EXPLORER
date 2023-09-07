@@ -5,10 +5,11 @@
 
 .classement {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  margin: 5px;
-  align-items: center;
-  gap: 12px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 5px;
+    align-items: center;
+    gap: 12px;
+    place-items: center;
 
   h4 {
     font-family: 'inter';
