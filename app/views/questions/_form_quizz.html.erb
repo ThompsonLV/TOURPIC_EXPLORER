@@ -36,11 +36,14 @@
           <h3 data-timer-target="clock" class="timer-type"></h3>
         </div>
         <svg class="timer">
-          <circle r="18" cx="20" cy="20"></circle>
+          <circle r="25" cx="25" cy="25"></circle>
         </svg>
       </div>
       <div class="question">
+        <p class="numeroter"><%= counter %>/<%= monument.questions.count %></p>
         <h3 class="question-style"><%= question.content%></h3>
+        <%# <p><%= @question.answer.success.count %>
+        <%# <%= current_user.answers.where(success: true).count %>
       </div>
     </div>
     <%= form_with model: UserAnswer.new, html: { data: { question_id: question.id, quizz_target: "form",  action: "submit->quizz#next" }} do |f| %>
@@ -73,3 +76,5 @@
   </div>
 
 <% end %>
+
+<%= console %>
