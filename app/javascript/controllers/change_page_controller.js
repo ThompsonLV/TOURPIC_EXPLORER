@@ -5,12 +5,11 @@ export default class extends Controller {
   static values = { url: String }
 
   connect() {
-
     const url = this.urlValue
     console.log(url);
     setTimeout(function() {
       // Changez l'URL de la page vers celle que vous souhaitez rediriger
-      window.location.replace(url)
+      window.location.pathname = url
     }, 3000);
   }
 }
