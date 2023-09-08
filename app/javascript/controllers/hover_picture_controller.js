@@ -33,7 +33,6 @@ export default class extends Controller {
     // let touchDuration = 0;
     // const startTime = Date.now();
     // console.log("start time", startTime);
-    window.addEventListener("contextmenu", e => e.preventDefault());
 
     const url_image = event.currentTarget.src;
     this.timer = setTimeout((event) => {
