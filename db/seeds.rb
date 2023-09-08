@@ -76,17 +76,6 @@ Answer.create!(content: "Les frères Paillard", question: questions3, success: t
 Answer.create!(content: "Les jumeaux Gerdon", question: questions3, success: false)
 Answer.create!(content: "Les cousins Fernillon", question: questions3, success: false)
 
-Monument.create!(
-  title: "Maison Thomas",
-  short_description: "Le Wagon : école coding bootcamp renommée pour des
-                    formations intensives en développement web et programmation.",
-  long_description: "Le Wagon est une école de codage ou 'coding bootcamp'
-                    qui propose des formations intensives en développement
-                    web et en programmation informatique.",
-  points: 500,
-  address: "175 cours Lafayette, 69006 Lyon"
-)
-
 p "Création des comptes"
 p '------------------------'
 
