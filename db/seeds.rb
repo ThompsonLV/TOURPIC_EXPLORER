@@ -17,7 +17,7 @@ url = "https://data.grandlyon.com/fr/datapusher/ws/rdata/apd_apidae.apdlieutouri
 monuments_serialized = URI.open(url).read
 monuments = JSON.parse(monuments_serialized)
 i = 1
-monuments['values'].first(100).each do |monument|
+monuments['values'].first(300).each do |monument|
   if monument['type'] == 'PATRIMOINE_CULTUREL' && monument['illustrations'] != nil
     p "Monument #{i}"
     new_monument = Monument.new(
